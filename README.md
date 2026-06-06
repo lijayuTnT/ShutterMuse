@@ -2,8 +2,9 @@
   <h2>ShutterMuse: Capture-Time Photography Guidance with MLLMs</h2>
   <p>
     <a href="#citation"><img src="https://img.shields.io/badge/Paper-Citation-b31b1b.svg" alt="Paper"/></a>
-    <a href="#captureguide-bench"><img src="https://img.shields.io/badge/CaptureGuide--Bench-Benchmark-green.svg" alt="Benchmark"/></a>
+    <a href="#captureguide-dataset-and-bench"><img src="https://img.shields.io/badge/CaptureGuide--Bench-Benchmark-green.svg" alt="Benchmark"/></a>
     <a href="#quick-start"><img src="https://img.shields.io/badge/Quick_Start-Inference-blue.svg" alt="Quick Start"/></a>
+    <a href="#training"><img src="https://img.shields.io/badge/Training-SFT%20%2B%20GRPO-purple.svg" alt="Training"/></a>
     <a href="#evaluation"><img src="https://img.shields.io/badge/Evaluation-Scripts-orange.svg" alt="Evaluation"/></a>
     <a href="#license"><img src="https://img.shields.io/badge/License-TBD-lightgrey.svg" alt="License"/></a>
   </p>
@@ -14,6 +15,7 @@
     <img src="./assets/teaser.png" alt="ShutterMuse teaser" width="800">
   </a>
 </div>
+
 
 **ShutterMuse** is a unified multimodal large language model for capture-time photography guidance. It supports:
 
@@ -41,6 +43,7 @@ CaptureGuide contains two task sides: photographer-side composition guidance and
 
 ### Photographer-side Guidance
 
+
 | Method          | IoU ↑     | BDE ↓     | R ↑       | RSR ↑     | KSR ↑ | MLLM-Score ↑ |
 | --------------- | --------- | --------- | --------- | --------- | ----- | ------------ |
 | Gemini-3.0-Pro  | 63.62     | 0.070     | 47.48     | 82.76     | 89.09 | 0.54         |
@@ -48,13 +51,16 @@ CaptureGuide contains two task sides: photographer-side composition guidance and
 | Venus           | 69.43     | 0.076     | 57.27     | 0.00      | 3.64  | 0.57         |
 | **ShutterMuse** | **74.30** | **0.054** | **70.03** | **82.76** | 74.55 | **0.64**     |
 
+
 ### Subject-side Guidance
+
 
 | Method          | Plausibility ↑ | Interaction ↑ | Aesthetics ↑ | Mean ↑ | Time ↓   | Tokens ↓ |
 | --------------- | -------------- | ------------- | ------------ | ------ | -------- | -------- |
 | Nano-Banana-Pro | 0.63           | 0.35          | 0.17         | 0.39   | 55.16    | 1370     |
 | GPT-Image-2     | 0.59           | 0.29          | 0.15         | 0.35   | 102.61   | 1427     |
 | **ShutterMuse** | 0.58           | 0.27          | 0.14         | 0.34   | **4.96** | **412**  |
+
 
 ## Installation
 
@@ -102,6 +108,35 @@ bash evaluation/scripts/quick_start.sh \
 
 Outputs include a JSON prediction and a `.webp` visualization. Run `bash evaluation/scripts/quick_start.sh --help` for all options.
 
+## Training
+
+ShutterMuse uses two training stages. The scripts are templates adapted from the original experiments; set local model/data paths before launching.
+
+Stage 1: supervised fine-tuning with Swift:
+
+```bash
+export MODEL_PATH=/path/to/Qwen3-VL-8B-Instruct
+export SFT_DATASET=/path/to/sft_train.jsonl
+bash training/stage1_sft.sh
+```
+
+Stage 2: GRPO reinforcement fine-tuning:
+
+```bash
+export MODEL_PATH=/path/to/stage1-merged-or-base-checkpoint
+export GRPO_DATASET_PATH=/path/to/grpo_dataset.jsonl
+export SALIENCY_PRECOMPUTE_JSONL=/path/to/grpo_dataset_birefnet_saliency.jsonl
+bash training/stage2_grpo.sh
+```
+
+The GRPO runner loads only the required plugin files in `training/grpo_utils/`: `data_format.py` for Swift dataset registration and `reward_func.py` for `ratio_orm`, `iou_orm`, `pose_visibility_orm`, and `saliency_orm`. To generate the optional saliency file used by `saliency_orm`, run:
+
+```bash
+python training/grpo_utils/precompute_birefnet_saliency.py \
+  --dataset "$GRPO_DATASET_PATH" \
+  --output "$SALIENCY_PRECOMPUTE_JSONL"
+```
+
 ## Evaluation
 
 Unified entry:
@@ -139,6 +174,7 @@ export GPT_API_KEY="your_api_key"
 ShutterMuse/
 ├── assets/          # README figures
 ├── evaluation/      # Inference and benchmark scripts
+├── training/        # Two-stage SFT and GRPO training scripts
 ├── test/            # Small example images
 ├── README.md
 └── requirements.txt
@@ -148,11 +184,13 @@ ShutterMuse/
 
 ## Data and Checkpoints
 
-| Resource | Status | Link |
-| --- | --- | --- |
-| CaptureGuide-Bench | Coming soon | TODO |
-| CaptureGuide-Dataset | Coming soon | TODO |
+
+| Resource               | Status      | Link |
+| ---------------------- | ----------- | ---- |
+| CaptureGuide-Bench     | Coming soon | TODO |
+| CaptureGuide-Dataset   | Coming soon | TODO |
 | ShutterMuse checkpoint | Coming soon | TODO |
+
 
 ## Citation
 
