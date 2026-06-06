@@ -70,6 +70,14 @@ The model returns textual pose instructions and structured pose annotations in t
 
 CaptureGuide-Dataset contains two subsets corresponding to the two guidance tasks.
 
+<div align="center">
+  <a href="./assets/data_distribution_01.png">
+    <img src="./assets/data_distribution_01.png" alt="CaptureGuide dataset and benchmark distribution" width="800">
+  </a>
+</div>
+
+<p align="center"><em>Distribution of CaptureGuide-Dataset and CaptureGuide-Bench across task sides, scene categories, aspect ratios, and composition decisions.</em></p>
+
 ### Photographer-side Subset
 
 The photographer-side data covers five representative photography scenarios:
