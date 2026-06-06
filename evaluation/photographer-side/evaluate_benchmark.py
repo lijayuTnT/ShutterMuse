@@ -995,9 +995,7 @@ def worker_process(gpu_ids_str, subset_data, args, process_idx):
             else:
                 prompt_ratio = get_closest_ratio(image_resize.size[0], image_resize.size[1])
                 prompt_text = (
-                    f"请找出图片中构图最好的区域，请按照{prompt_ratio}的比例输出bounding box，"
-                    f"并按照(x1,y1),(x2,y2)的格式返回一个bounding box，其中(x1,y1)是左上角的顶点，"
-                    f"(x2,y2)是右下角的顶点。"
+                    f"Please identify the region with the best composition in the image. Return a bounding box in the format (x1,y1),(x2,y2) with a {prompt_ratio} aspect ratio, where (x1,y1) is the top-left vertex and (x2,y2) is the bottom-right vertex."
                 )
             if model_family == "internvl":
                 output_text = _internvl_generate_text(model, tokenizer, image_resize, prompt_text, args)

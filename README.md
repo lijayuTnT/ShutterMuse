@@ -110,32 +110,36 @@ Outputs include a JSON prediction and a `.webp` visualization. Run `bash evaluat
 
 ## Training
 
-ShutterMuse uses two training stages. The scripts are templates adapted from the original experiments; set local model/data paths before launching.
+ShutterMuse training follows two stages. The released scripts are lightweight launch templates; set local model, data, and GPU paths before running.
 
-Stage 1: supervised fine-tuning with Swift:
+Stage 1: supervised fine-tuning (SFT) with ModelScope Swift:
 
 ```bash
 export MODEL_PATH=/path/to/Qwen3-VL-8B-Instruct
 export SFT_DATASET=/path/to/sft_train.jsonl
+export OUTPUT_ROOT=outputs/training/stage1_sft
 bash training/stage1_sft.sh
 ```
 
-Stage 2: GRPO reinforcement fine-tuning:
+Stage 2: GRPO fine-tuning from the stage-1 checkpoint:
 
 ```bash
 export MODEL_PATH=/path/to/stage1-merged-or-base-checkpoint
 export GRPO_DATASET_PATH=/path/to/grpo_dataset.jsonl
-export SALIENCY_PRECOMPUTE_JSONL=/path/to/grpo_dataset_birefnet_saliency.jsonl
+export OUTPUT_ROOT=outputs/training/stage2_grpo
 bash training/stage2_grpo.sh
 ```
 
-The GRPO runner loads only the required plugin files in `training/grpo_utils/`: `data_format.py` for Swift dataset registration and `reward_func.py` for `ratio_orm`, `iou_orm`, `pose_visibility_orm`, and `saliency_orm`. To generate the optional saliency file used by `saliency_orm`, run:
+Optional saliency rewards can use a precomputed BiRefNet file:
 
 ```bash
 python training/grpo_utils/precompute_birefnet_saliency.py \
   --dataset "$GRPO_DATASET_PATH" \
-  --output "$SALIENCY_PRECOMPUTE_JSONL"
+  --output /path/to/grpo_dataset_birefnet_saliency.jsonl
+export SALIENCY_PRECOMPUTE_JSONL=/path/to/grpo_dataset_birefnet_saliency.jsonl
 ```
+
+The GRPO script registers datasets with `training/grpo_utils/data_format.py` and rewards with `training/grpo_utils/reward_func.py` (`ratio_orm`, `iou_orm`, `pose_visibility_orm`, `saliency_orm`). Common overrides include `CUDA_VISIBLE_DEVICES`, `NPROC_PER_NODE`, `PER_DEVICE_TRAIN_BATCH_SIZE`, `LEARNING_RATE`, `OUTPUT_DIR`, and `VLLM_SERVER_PORT`.
 
 ## Evaluation
 

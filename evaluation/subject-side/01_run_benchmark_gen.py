@@ -35,20 +35,19 @@ from transformers import AutoProcessor, Qwen3VLForConditionalGeneration
 from peft import PeftModel
 
 DEFAULT_PROMPT = (
-    "你是一个人像摄影摆姿分析专家，请根据图片进行人像姿势推荐，以json格式给出推荐的人体17个关键点"
-    "的相对坐标和是否在画面中可见，17个关键点的位置依次为：鼻子、左眼、右眼、左耳、右耳、"
-    "左肩、右肩、左手肘、右肘、左手腕、右腕、左髋、右髋、左膝、右膝、左脚踝、右脚踝。"
+    "You are a portrait photography pose analysis expert. Based on the image, recommend a human pose "
+    "and provide the relative coordinates of 17 human keypoints and whether each keypoint is visible "
+    "in the image in JSON format. The 17 keypoints are, in order: nose, left eye, right eye, "
+    "left ear, right ear, left shoulder, right shoulder, left elbow, right elbow, left wrist, "
+    "right wrist, left hip, right hip, left knee, right knee, left ankle, right ankle."
 )
 MIXTASK_PROMPT = (
-    "你是一个人像摄影专家，请根据图片先找到合适构图再进行人像姿势推荐，以json格式给出推荐的人体17个关键点"
-    "的相对坐标和是否在画面中可见，17个关键点的位置依次为：鼻子、左眼、右眼、左耳、右耳、"
-    "左肩、右肩、左手肘、右肘、左手腕、右腕、左髋、右髋、左膝、右膝、左脚踝、右脚踝。"
-)
-MALE_PRMPT=(
-    "请推荐一个适合男生的姿势。"
-)
-FEMALE_PROMPT=(
-    "请推荐一个适合女生的姿势。"
+    "You are a portrait photography expert. Based on the image, first identify a suitable composition "
+    "and then recommend a human pose. Provide the relative coordinates of 17 human keypoints and "
+    "whether each keypoint is visible in the image in JSON format. The 17 keypoints are, in order: "
+    "nose, left eye, right eye, left ear, right ear, left shoulder, right shoulder, left elbow, "
+    "right elbow, left wrist, right wrist, left hip, right hip, left knee, right knee, left ankle, "
+    "right ankle."
 )
 RATIO_PROMPT=(
     ""
