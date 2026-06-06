@@ -1,0 +1,30 @@
+# Large benchmark/data files are released separately.
+Benchmark/
+
+# Runtime outputs and visualizations.
+outputs/
+
+# Checkpoints and model weights.
+*.pt
+*.pth
+*.safetensors
+*.ckpt
+*.bin
+*.onnx
+
+# Python/cache files.
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Local environments and credentials.
+.env
+.env.*
+.venv/
+venv/
+
+# OS/editor files.
+.DS_Store
+.vscode/
+.idea/
