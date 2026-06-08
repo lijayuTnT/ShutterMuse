@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
 :root {
   --bg: #0d0f14;
   --bg-soft: #141923;
@@ -23,7 +25,8 @@ body {
   margin: 0;
   color: var(--text);
   background: var(--bg);
-  font-family: "Google Sans", "Noto Sans", Arial, sans-serif;
+  font-family: "Open Sans", "Google Sans", "Noto Sans", Arial, sans-serif;
+  font-weight: 300;
 }
 
 a {
@@ -62,7 +65,7 @@ a:hover {
   margin-bottom: 0.8rem;
   color: var(--accent);
   font-size: 0.9rem;
-  font-weight: 700;
+  font-weight: 300;
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
@@ -91,6 +94,7 @@ a:hover {
   display: block;
   font-family: "Kaushan Script", "Google Sans", cursive;
   font-size: clamp(3.3rem, 9vw, 7.4rem);
+  font-weight: 300;
   line-height: 0.95;
   background: linear-gradient(90deg, #f7d26a, #c084fc 42%, #67e8f9 82%);
   -webkit-background-clip: text;
@@ -104,8 +108,8 @@ a:hover {
   margin-top: 1rem;
   color: #eef4ff;
   font-size: clamp(1.45rem, 3.2vw, 2.65rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
+  font-weight: 300;
+  letter-spacing: 0.01em;
 }
 
 .authors,
@@ -149,6 +153,7 @@ a:hover {
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.09);
   color: var(--text);
+  font-weight: 300;
   transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
 }
 
@@ -198,8 +203,8 @@ a:hover {
   margin-bottom: 1.25rem;
   color: var(--text);
   font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 900;
-  letter-spacing: -0.04em;
+  font-weight: 300;
+  letter-spacing: 0.01em;
   text-align: center;
 }
 
@@ -283,7 +288,7 @@ a:hover {
 .table-title {
   color: var(--text);
   font-size: 1.25rem;
-  font-weight: 800;
+  font-weight: 300;
 }
 
 .feature-card p {
@@ -325,7 +330,7 @@ a:hover {
 .result-table thead th {
   background: rgba(255, 255, 255, 0.08);
   color: #eff6ff;
-  font-weight: 800;
+  font-weight: 300;
 }
 
 .result-table tbody tr:hover {
@@ -334,8 +339,12 @@ a:hover {
 
 .result-table .ours td {
   color: #fff8db;
-  font-weight: 900;
+  font-weight: 300;
   background: rgba(251, 191, 36, 0.12);
+}
+
+strong {
+  font-weight: 300;
 }
 
 pre {
@@ -370,6 +379,7 @@ pre code {
   justify-content: space-between;
   padding: 1.2rem;
   color: var(--text);
+  font-weight: 300;
   transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
 }
 
