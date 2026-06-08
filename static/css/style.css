@@ -72,6 +72,21 @@ a:hover {
   color: var(--text);
 }
 
+.brand-row {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.8rem, 2vw, 1.6rem);
+}
+
+.title-logo {
+  width: clamp(4.7rem, 13vw, 9.2rem);
+  height: clamp(4.7rem, 13vw, 9.2rem);
+  border-radius: 999px;
+  object-fit: cover;
+  filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.35));
+}
+
 .brand-title {
   display: block;
   font-family: "Kaushan Script", "Google Sans", cursive;
@@ -388,6 +403,11 @@ pre code {
 
   .section {
     padding: 3.2rem 1rem;
+  }
+
+  .brand-row {
+    flex-direction: column;
+    gap: 0.35rem;
   }
 
   .resource-grid {
