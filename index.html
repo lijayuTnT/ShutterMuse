@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ShutterMuse: Capture-Time Photography Guidance with MLLMs">
+  <meta name="keywords" content="ShutterMuse, CaptureGuide, photography guidance, multimodal large language models, MLLM, composition guidance, pose guidance">
+  <title>ShutterMuse: Capture-Time Photography Guidance with MLLMs</title>
+  <link rel="icon" href="static/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Kaushan+Script:regular" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+  <header class="hero hero-gradient">
+    <div class="hero-body">
+      <div class="container is-max-desktop has-text-centered">
+        <p class="project-kicker">Capture-Time Photography Guidance</p>
+        <h1 class="title publication-title">
+          <span class="brand-title">ShutterMuse</span>
+          <span class="subtitle-line">Capture-Time Photography Guidance with MLLMs</span>
+        </h1>
+        <p class="authors">
+          Jiayu Li<sup>1,2</sup> · Yixiao Fang<sup>2,†</sup> · Tianyu Hu<sup>2</sup> · Wei Cheng<sup>2</sup> · Ping Huang<sup>2</sup> · Zheheng Fan<sup>2</sup> · Gang Yu<sup>2,‡</sup> · Xingjun Ma<sup>1,‡</sup>
+        </p>
+        <p class="affiliations"><sup>1</sup>Fudan University · <sup>2</sup>StepFun</p>
+        <p class="venue">International Conference on Learning Representations (ICLR), 2027 · <sup>†</sup>Project lead · <sup>‡</sup>Corresponding authors</p>
+        <div class="publication-links">
+          <a class="button is-normal is-rounded is-dark" href="https://github.com/lijayuTnT/ShutterMuse" target="_blank" rel="noopener">Code</a>
+          <a class="button is-normal is-rounded is-dark" href="#citation">Citation</a>
+          <a class="button is-normal is-rounded is-dark" href="#quick-start">Quick Start</a>
+          <a class="button is-normal is-rounded is-light is-disabled" aria-disabled="true" title="Paper link will be added when available">Paper Coming Soon</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section teaser-section">
+      <div class="container is-max-widescreen">
+        <figure class="image-card teaser-card">
+          <img src="static/images/teaser.png" alt="ShutterMuse teaser">
+        </figure>
+        <p class="teaser-caption">
+          ShutterMuse provides unified photographer-side composition guidance and subject-side pose guidance for capture-time photography.
+        </p>
+      </div>
+    </section>
+
+    <section class="section content-section" id="overview">
+      <div class="container is-max-desktop">
+        <h2 class="section-title">Abstract</h2>
+        <p>
+          Real-world photography requires capture-time decisions from both the photographer and the subject. Existing aesthetic cropping benchmarks usually focus on post-hoc crop prediction, while subject-side pose recommendation and interactive capture guidance remain underexplored.
+        </p>
+        <p>
+          We introduce <strong>CaptureGuide-Bench</strong>, a benchmark for photographer-side composition decision/refinement and subject-side scene-conditioned pose recommendation, and construct <strong>CaptureGuide-Dataset</strong>, a large-scale dataset of approximately 130K samples with textual rationales and structured visual annotations. Built on this data, <strong>ShutterMuse</strong> is trained with supervised and reinforcement fine-tuning to provide structured, interpretable photography guidance.
+        </p>
+        <h2 class="section-title compact-title">Task Overview</h2>
+        <div class="columns feature-grid">
+          <div class="column">
+            <div class="feature-card">
+              <div class="feature-icon" aria-hidden="true">▦</div>
+              <h3>Photographer-Side Guidance</h3>
+              <p>
+                The model can keep, refine, or reject the current framing, and predicts a composition box when refinement is needed.
+              </p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="feature-card">
+              <div class="feature-icon" aria-hidden="true">◎</div>
+              <h3>Subject-Side Guidance</h3>
+              <p>
+                The model recommends scene-conditioned portrait poses with COCO-17 keypoints and visibility states.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt-section" id="captureguide">
+      <div class="container is-max-desktop">
+        <h2 class="section-title">CaptureGuide Dataset and Bench</h2>
+        <p>
+          CaptureGuide contains photographer-side composition guidance and subject-side pose guidance tasks. CaptureGuide-Dataset is used for model development, while CaptureGuide-Bench evaluates composition decision, composition refinement, and pose recommendation quality.
+        </p>
+        <figure class="image-card mt-5">
+          <img src="static/images/data_distribution_01.png" alt="CaptureGuide dataset and benchmark distribution">
+          <figcaption>Distribution of CaptureGuide-Dataset and CaptureGuide-Bench.</figcaption>
+        </figure>
+        <div class="columns figure-grid mt-5">
+          <div class="column">
+            <figure class="image-card small-card">
+              <img src="static/images/composition_data_construction_01.png" alt="Photographer-side composition data construction">
+              <figcaption>Photographer-side composition data construction.</figcaption>
+            </figure>
+          </div>
+          <div class="column">
+            <figure class="image-card small-card">
+              <img src="static/images/pose_data_construction_01.png" alt="Subject-side pose data construction">
+              <figcaption>Subject-side pose data construction.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section content-section" id="results">
+      <div class="container is-max-desktop">
+        <h2 class="section-title">Results</h2>
+        <figure class="image-card mb-6">
+          <img src="static/images/Qualitative_comparison_photographer_01.png" alt="Qualitative comparison for photographer-side guidance">
+          <figcaption>Qualitative comparison for photographer-side guidance.</figcaption>
+        </figure>
+
+        <h3 class="table-title">Photographer-Side Guidance</h3>
+        <div class="table-container result-table-card">
+          <table class="table is-fullwidth result-table">
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>IoU ↑</th>
+                <th>BDE ↓</th>
+                <th>R ↑</th>
+                <th>RSR ↑</th>
+                <th>KSR ↑</th>
+                <th>MLLM-Score ↑</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Gemini-3.0-Pro</td><td>63.62</td><td>0.070</td><td>47.48</td><td>82.76</td><td>89.09</td><td>0.54</td></tr>
+              <tr><td>GPT-5.5</td><td>65.44</td><td>0.091</td><td>41.84</td><td>10.34</td><td>81.82</td><td>0.48</td></tr>
+              <tr><td>Venus</td><td>69.43</td><td>0.076</td><td>57.27</td><td>0.00</td><td>3.64</td><td>0.57</td></tr>
+              <tr class="ours"><td>ShutterMuse</td><td>74.30</td><td>0.054</td><td>70.03</td><td>82.76</td><td>74.55</td><td>0.64</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="table-title">Subject-Side Guidance</h3>
+        <div class="table-container result-table-card">
+          <table class="table is-fullwidth result-table">
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>Plausibility ↑</th>
+                <th>Interaction ↑</th>
+                <th>Aesthetics ↑</th>
+                <th>Mean ↑</th>
+                <th>Time ↓</th>
+                <th>Tokens ↓</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Nano-Banana-Pro</td><td>0.63</td><td>0.35</td><td>0.17</td><td>0.39</td><td>55.16</td><td>1370</td></tr>
+              <tr><td>GPT-Image-2</td><td>0.59</td><td>0.29</td><td>0.15</td><td>0.35</td><td>102.61</td><td>1427</td></tr>
+              <tr class="ours"><td>ShutterMuse</td><td>0.58</td><td>0.27</td><td>0.14</td><td>0.34</td><td>4.96</td><td>412</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt-section" id="quick-start">
+      <div class="container is-max-desktop">
+        <h2 class="section-title">Quick Start</h2>
+        <p>Install dependencies and set checkpoint paths before running inference.</p>
+        <pre><code>git clone https://github.com/lijayuTnT/ShutterMuse.git
+cd ShutterMuse
+conda create -n shuttermuse python=3.10 -y
+conda activate shuttermuse
+pip install -r requirements.txt
+
+export MODEL_PATH=/path/to/base-or-merged-qwen-vl-checkpoint
+export LORA_PATH=/path/to/shuttermuse-lora
+export OUTPUT_DIR=outputs/quick_start</code></pre>
+
+        <div class="columns code-grid">
+          <div class="column">
+            <h3>Photographer-Side</h3>
+            <pre><code>bash evaluation/scripts/quick_start.sh \
+  --side photographer \
+  --image test/401128801616615964.webp \
+  --model-path "$MODEL_PATH" \
+  --lora-path "$LORA_PATH" \
+  --output-dir "$OUTPUT_DIR"</code></pre>
+          </div>
+          <div class="column">
+            <h3>Subject-Side</h3>
+            <pre><code>bash evaluation/scripts/quick_start.sh \
+  --side subject \
+  --image /path/to/scene.jpg \
+  --model-path "$MODEL_PATH" \
+  --lora-path "$LORA_PATH" \
+  --output-dir "$OUTPUT_DIR"</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section content-section" id="resources">
+      <div class="container is-max-desktop">
+        <h2 class="section-title">Resources</h2>
+        <div class="resource-grid">
+          <a class="resource-card" href="https://github.com/lijayuTnT/ShutterMuse" target="_blank" rel="noopener">
+            <span class="icon" aria-hidden="true">⌘</span>
+            <strong>Code</strong>
+            <span>Released</span>
+          </a>
+          <div class="resource-card muted">
+            <span class="icon" aria-hidden="true">◈</span>
+            <strong>CaptureGuide-Bench</strong>
+            <span>Coming soon</span>
+          </div>
+          <div class="resource-card muted">
+            <span class="icon" aria-hidden="true">▧</span>
+            <strong>CaptureGuide-Dataset</strong>
+            <span>Coming soon</span>
+          </div>
+          <div class="resource-card muted">
+            <span class="icon" aria-hidden="true">✦</span>
+            <strong>ShutterMuse Checkpoint</strong>
+            <span>Coming soon</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt-section" id="citation">
+      <div class="container is-max-desktop">
+        <h2 class="section-title">Citation</h2>
+        <pre class="bibtex"><code>@inproceedings{li2027shuttermuse,
+  title     = {ShutterMuse: Capture-Time Photography Guidance with MLLMs},
+  author    = {Li, Jiayu and Fang, Yixiao and Hu, Tianyu and Cheng, Wei and Huang, Ping and Fan, Zheheng and Yu, Gang and Ma, Xingjun},
+  booktitle = {International Conference on Learning Representations},
+  year      = {2027}
+}</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer page-footer">
+    <div class="content has-text-centered">
+      <p>
+        Website design inspired by the <a href="https://github.com/bytedance/USO/tree/gh-pages" target="_blank" rel="noopener">USO project page</a>.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
