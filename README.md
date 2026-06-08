@@ -4,12 +4,11 @@
     ShutterMuse: Capture-Time Photography Guidance with MLLMs
   </h2>
   <p>
-    <a href="#citation"><img src="https://img.shields.io/badge/Paper-Citation-b31b1b.svg" alt="Paper"/></a>
-    <a href="#captureguide-dataset-and-bench"><img src="https://img.shields.io/badge/CaptureGuide--Bench-Benchmark-green.svg" alt="Benchmark"/></a>
-    <a href="#quick-start"><img src="https://img.shields.io/badge/Quick_Start-Inference-blue.svg" alt="Quick Start"/></a>
-    <a href="#training"><img src="https://img.shields.io/badge/Training-SFT%20%2B%20GRPO-purple.svg" alt="Training"/></a>
-    <a href="#evaluation"><img src="https://img.shields.io/badge/Evaluation-Scripts-orange.svg" alt="Evaluation"/></a>
-    <a href="#license"><img src="https://img.shields.io/badge/License-TBD-lightgrey.svg" alt="License"/></a>
+    <a href="#"><img src="https://img.shields.io/badge/arXiv-Coming%20Soon-b31b1b.svg" alt="arXiv"/></a>
+    <a href="https://lijayuTnT.github.io/ShutterMuse/"><img src="https://img.shields.io/badge/Project-ShutterMuse-blue.svg" alt="Project"/></a>
+    <a href="#data-and-checkpoints"><img src="https://img.shields.io/badge/Model-Coming%20Soon-yellow.svg" alt="Model"/></a>
+    <a href="#data-and-checkpoints"><img src="https://img.shields.io/badge/Dataset-Coming%20Soon-green.svg" alt="Dataset"/></a>
+    <a href="#data-and-checkpoints"><img src="https://img.shields.io/badge/Bench-Coming%20Soon-purple.svg" alt="Bench"/></a>
   </p>
 </div>
 
