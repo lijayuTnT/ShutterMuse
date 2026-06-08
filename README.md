@@ -1,5 +1,8 @@
 <div align="center">
-  <h2>ShutterMuse: Capture-Time Photography Guidance with MLLMs</h2>
+  <h2>
+    <img src="./assets/logo.png" alt="ShutterMuse logo" width="72" align="center">
+    ShutterMuse: Capture-Time Photography Guidance with MLLMs
+  </h2>
   <p>
     <a href="#citation"><img src="https://img.shields.io/badge/Paper-Citation-b31b1b.svg" alt="Paper"/></a>
     <a href="#captureguide-dataset-and-bench"><img src="https://img.shields.io/badge/CaptureGuide--Bench-Benchmark-green.svg" alt="Benchmark"/></a>
@@ -199,11 +202,11 @@ ShutterMuse/
 ## Citation
 
 ```bibtex
-@inproceedings{li2027shuttermuse,
-  title     = {ShutterMuse: Capture-Time Photography Guidance with MLLMs},
-  author    = {Li, Jiayu and Fang, Yixiao and Hu, Tianyu and Cheng, Wei and Huang, Ping and Fan, Zheheng and Yu, Gang and Ma, Xingjun},
-  booktitle = {International Conference on Learning Representations},
-  year      = {2027}
+@misc{li2026shuttermuse,
+  title        = {ShutterMuse: Capture-Time Photography Guidance with MLLMs},
+  author       = {Li, Jiayu and Fang, Yixiao and Hu, Tianyu and Cheng, Wei and Huang, Ping and Fan, Zheheng and Yu, Gang and Ma, Xingjun},
+  year         = {2026},
+  note         = {Preprint}
 }
 ```
 
