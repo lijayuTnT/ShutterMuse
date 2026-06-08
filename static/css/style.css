@@ -128,6 +128,14 @@ a:hover {
   margin: 0 auto 0.35rem;
 }
 
+#abstract p {
+  text-align: justify;
+  text-align-last: left;
+  hyphens: auto;
+  overflow-wrap: break-word;
+  word-spacing: 0.02em;
+}
+
 .affiliations {
   margin-bottom: 0.25rem;
 }
