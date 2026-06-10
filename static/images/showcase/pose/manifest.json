@@ -1,218 +1,338 @@
 [
   {
     "index": 1,
-    "stem": "pose_02",
+    "stem": "pose_01",
     "src": "static/images/showcase/pose/pose_pair_01.jpg",
+    "keypoints": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase/pose_01.jpg",
+    "generated": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase_vis/pose_01.png",
+    "size": [
+      900,
+      668
+    ],
+    "bytes": 138730
+  },
+  {
+    "index": 2,
+    "stem": "pose_02",
+    "src": "static/images/showcase/pose/pose_pair_02.jpg",
     "keypoints": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase/pose_02.jpg",
     "generated": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase_vis/pose_02.png",
     "size": [
       900,
       668
     ],
-    "bytes": 165241
+    "bytes": 154799
   },
   {
-    "index": 2,
+    "index": 3,
     "stem": "pose_03",
-    "src": "static/images/showcase/pose/pose_pair_02.jpg",
+    "src": "static/images/showcase/pose/pose_pair_03.jpg",
     "keypoints": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase/pose_03.jpg",
     "generated": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase_vis/pose_03.png",
     "size": [
       900,
       668
     ],
-    "bytes": 122815
+    "bytes": 122377
   },
   {
-    "index": 3,
+    "index": 4,
     "stem": "pose_04",
-    "src": "static/images/showcase/pose/pose_pair_03.jpg",
+    "src": "static/images/showcase/pose/pose_pair_04.jpg",
     "keypoints": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase/pose_04.jpg",
     "generated": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase_vis/pose_04.png",
     "size": [
       900,
       668
     ],
-    "bytes": 97789
+    "bytes": 97140
   },
   {
-    "index": 4,
+    "index": 5,
     "stem": "pose_05",
-    "src": "static/images/showcase/pose/pose_pair_04.jpg",
+    "src": "static/images/showcase/pose/pose_pair_05.jpg",
     "keypoints": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase/pose_05.jpg",
     "generated": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase_vis/pose_05.png",
     "size": [
       900,
       668
     ],
-    "bytes": 85805
+    "bytes": 85247
   },
   {
-    "index": 5,
+    "index": 6,
+    "stem": "pose_06",
+    "src": "static/images/showcase/pose/pose_pair_06.jpg",
+    "keypoints": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase/pose_06.jpg",
+    "generated": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase_vis/pose_06.png",
+    "size": [
+      900,
+      668
+    ],
+    "bytes": 153079
+  },
+  {
+    "index": 7,
     "stem": "pose_09",
-    "src": "static/images/showcase/pose/pose_pair_05.jpg",
+    "src": "static/images/showcase/pose/pose_pair_07.jpg",
     "keypoints": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase/pose_09.jpg",
     "generated": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase_vis/pose_09.png",
     "size": [
       900,
       668
     ],
-    "bytes": 200558
+    "bytes": 200894
   },
   {
-    "index": 6,
+    "index": 8,
     "stem": "pose_10",
-    "src": "static/images/showcase/pose/pose_pair_06.jpg",
+    "src": "static/images/showcase/pose/pose_pair_08.jpg",
     "keypoints": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase/pose_10.jpg",
     "generated": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase_vis/pose_10.png",
     "size": [
       900,
       668
     ],
-    "bytes": 164879
+    "bytes": 164684
   },
   {
-    "index": 7,
+    "index": 9,
     "stem": "pose_11",
-    "src": "static/images/showcase/pose/pose_pair_07.jpg",
+    "src": "static/images/showcase/pose/pose_pair_09.jpg",
     "keypoints": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase/pose_11.jpg",
     "generated": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase_vis/pose_11.png",
     "size": [
       900,
       668
     ],
-    "bytes": 86784
+    "bytes": 85744
   },
   {
-    "index": 8,
+    "index": 10,
+    "stem": "pose_12",
+    "src": "static/images/showcase/pose/pose_pair_10.jpg",
+    "keypoints": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase/pose_12.jpg",
+    "generated": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase_vis/pose_12.png",
+    "size": [
+      900,
+      668
+    ],
+    "bytes": 103862
+  },
+  {
+    "index": 11,
     "stem": "pose_13",
-    "src": "static/images/showcase/pose/pose_pair_08.jpg",
+    "src": "static/images/showcase/pose/pose_pair_11.jpg",
     "keypoints": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase/pose_13.jpg",
     "generated": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase_vis/pose_13.png",
     "size": [
       900,
       668
     ],
-    "bytes": 68037
+    "bytes": 67635
   },
   {
-    "index": 9,
+    "index": 12,
+    "stem": "pose_15",
+    "src": "static/images/showcase/pose/pose_pair_12.jpg",
+    "keypoints": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase/pose_15.jpg",
+    "generated": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase_vis/pose_15.png",
+    "size": [
+      900,
+      668
+    ],
+    "bytes": 85840
+  },
+  {
+    "index": 13,
     "stem": "pose_17",
-    "src": "static/images/showcase/pose/pose_pair_09.jpg",
+    "src": "static/images/showcase/pose/pose_pair_13.jpg",
     "keypoints": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase/pose_17.jpg",
     "generated": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase_vis/pose_17.png",
     "size": [
       900,
       668
     ],
-    "bytes": 141724
+    "bytes": 141465
   },
   {
-    "index": 10,
+    "index": 14,
     "stem": "pose_18",
-    "src": "static/images/showcase/pose/pose_pair_10.jpg",
+    "src": "static/images/showcase/pose/pose_pair_14.jpg",
     "keypoints": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase/pose_18.jpg",
     "generated": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase_vis/pose_18.png",
     "size": [
       900,
       668
     ],
-    "bytes": 96903
+    "bytes": 96756
   },
   {
-    "index": 11,
+    "index": 15,
     "stem": "pose_19",
-    "src": "static/images/showcase/pose/pose_pair_11.jpg",
+    "src": "static/images/showcase/pose/pose_pair_15.jpg",
     "keypoints": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase/pose_19.jpg",
     "generated": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase_vis/pose_19.png",
     "size": [
       900,
       668
     ],
-    "bytes": 145260
+    "bytes": 144622
   },
   {
-    "index": 12,
+    "index": 16,
     "stem": "pose_21",
-    "src": "static/images/showcase/pose/pose_pair_12.jpg",
+    "src": "static/images/showcase/pose/pose_pair_16.jpg",
     "keypoints": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase/pose_21.jpg",
     "generated": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase_vis/pose_21.png",
     "size": [
       900,
       668
     ],
-    "bytes": 78231
+    "bytes": 78056
   },
   {
-    "index": 13,
+    "index": 17,
+    "stem": "pose_22",
+    "src": "static/images/showcase/pose/pose_pair_17.jpg",
+    "keypoints": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase/pose_22.jpg",
+    "generated": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase_vis/pose_22.png",
+    "size": [
+      900,
+      668
+    ],
+    "bytes": 118326
+  },
+  {
+    "index": 18,
+    "stem": "pose_23",
+    "src": "static/images/showcase/pose/pose_pair_18.jpg",
+    "keypoints": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase/pose_23.jpg",
+    "generated": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase_vis/pose_23.png",
+    "size": [
+      900,
+      668
+    ],
+    "bytes": 121123
+  },
+  {
+    "index": 19,
     "stem": "pose_24",
-    "src": "static/images/showcase/pose/pose_pair_13.jpg",
+    "src": "static/images/showcase/pose/pose_pair_19.jpg",
     "keypoints": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase/pose_24.jpg",
     "generated": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase_vis/pose_24.png",
     "size": [
       900,
       668
     ],
-    "bytes": 77992
+    "bytes": 77366
   },
   {
-    "index": 14,
+    "index": 20,
+    "stem": "pose_25",
+    "src": "static/images/showcase/pose/pose_pair_20.jpg",
+    "keypoints": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase/pose_25.jpg",
+    "generated": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase_vis/pose_25.png",
+    "size": [
+      900,
+      668
+    ],
+    "bytes": 154422
+  },
+  {
+    "index": 21,
     "stem": "pose_26",
-    "src": "static/images/showcase/pose/pose_pair_14.jpg",
+    "src": "static/images/showcase/pose/pose_pair_21.jpg",
     "keypoints": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase/pose_26.jpg",
     "generated": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase_vis/pose_26.png",
     "size": [
       900,
       668
     ],
-    "bytes": 211014
+    "bytes": 212062
   },
   {
-    "index": 15,
+    "index": 22,
     "stem": "pose_27",
-    "src": "static/images/showcase/pose/pose_pair_15.jpg",
+    "src": "static/images/showcase/pose/pose_pair_22.jpg",
     "keypoints": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase/pose_27.jpg",
     "generated": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase_vis/pose_27.png",
     "size": [
       900,
       668
     ],
-    "bytes": 94126
+    "bytes": 93897
   },
   {
-    "index": 16,
+    "index": 23,
+    "stem": "pose_29",
+    "src": "static/images/showcase/pose/pose_pair_23.jpg",
+    "keypoints": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase/pose_29.jpg",
+    "generated": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase_vis/pose_29.png",
+    "size": [
+      900,
+      668
+    ],
+    "bytes": 106167
+  },
+  {
+    "index": 24,
     "stem": "pose_31",
-    "src": "static/images/showcase/pose/pose_pair_16.jpg",
+    "src": "static/images/showcase/pose/pose_pair_24.jpg",
     "keypoints": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase/pose_31.jpg",
     "generated": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase_vis/pose_31.png",
     "size": [
       900,
       668
     ],
-    "bytes": 162963
+    "bytes": 161762
   },
   {
-    "index": 17,
+    "index": 25,
     "stem": "pose_32",
-    "src": "static/images/showcase/pose/pose_pair_17.jpg",
+    "src": "static/images/showcase/pose/pose_pair_25.jpg",
     "keypoints": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase/pose_32.jpg",
     "generated": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase_vis/pose_32.png",
     "size": [
       900,
       668
     ],
-    "bytes": 156743
+    "bytes": 157428
   },
   {
-    "index": 18,
+    "index": 26,
+    "stem": "pose_34",
+    "src": "static/images/showcase/pose/pose_pair_26.jpg",
+    "keypoints": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase/pose_34.jpg",
+    "generated": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase_vis/pose_34.png",
+    "size": [
+      900,
+      668
+    ],
+    "bytes": 156492
+  },
+  {
+    "index": 27,
+    "stem": "pose_36",
+    "src": "static/images/showcase/pose/pose_pair_27.jpg",
+    "keypoints": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase/pose_36.jpg",
+    "generated": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase_vis/pose_36.png",
+    "size": [
+      900,
+      668
+    ],
+    "bytes": 75519
+  },
+  {
+    "index": 28,
     "stem": "pose_39",
-    "src": "static/images/showcase/pose/pose_pair_18.jpg",
+    "src": "static/images/showcase/pose/pose_pair_28.jpg",
     "keypoints": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase/pose_39.jpg",
     "generated": "/mnt/workspacedir/lijiayu/ShutterMuse-gh-pages/pose_showcase_vis/pose_39.png",
     "size": [
       900,
       668
     ],
-    "bytes": 129541
+    "bytes": 128878
   }
 ]
