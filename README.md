@@ -7,7 +7,6 @@
     <a href="#"><img src="https://img.shields.io/badge/arXiv-Coming%20Soon-b31b1b.svg" alt="arXiv"/></a>
     <a href="https://lijayuTnT.github.io/ShutterMuse/"><img src="https://img.shields.io/badge/Project-ShutterMuse-blue.svg" alt="Project"/></a>
     <a href="#data-and-checkpoints"><img src="https://img.shields.io/badge/Model-Coming%20Soon-yellow.svg" alt="Model"/></a>
-    <img src="https://img.shields.io/badge/Dataset-Coming%20Soon-green.svg" alt="Dataset"/>
     <a href="#data-and-checkpoints"><img src="https://img.shields.io/badge/Bench-Coming%20Soon-purple.svg" alt="Bench"/></a>
   </p>
 </div>
