@@ -4,319 +4,351 @@
     "src": "static/images/showcase/photographer/photographer_pair_01.jpg",
     "source_path": "/mnt/workspacedir/lijiayu/data/AesCrop/composition_benchmark/showcase_gpt_enhanced_paired/Standard/00000059_2017-08-10--598c1e6fd1d3b95d04616907_04c60960-d292_286e0ee9_standard_auto_ratio_ffbf38.webp",
     "size": [
-      2922,
-      1086
+      1200,
+      446
     ],
-    "display_index": 1
+    "display_index": 1,
+    "bytes": 139656
   },
   {
     "index": 2,
     "src": "static/images/showcase/photographer/photographer_pair_02.jpg",
     "source_path": "/mnt/workspacedir/lijiayu/data/AesCrop/composition_benchmark/showcase_gpt_enhanced_paired/Standard/00000131_2018-01-31--5a71d863304b1475ab5a5ff8_0ad47e7c-afe3_ab02dcb4_standard_auto_ratio_ffbf38.webp",
     "size": [
-      2197,
-      1449
+      1200,
+      791
     ],
-    "display_index": 2
+    "display_index": 2,
+    "bytes": 96825
   },
   {
     "index": 3,
     "src": "static/images/showcase/photographer/photographer_pair_03.jpg",
     "source_path": "/mnt/workspacedir/lijiayu/data/AesCrop/composition_benchmark/showcase_gpt_enhanced_paired/Standard/00000264_2018-06-12--5b1f9fc3bc1c784d62858cbc_3d2c1960-ef95_1bb54da1_standard_auto_ratio_ffbf38.webp",
     "size": [
-      2196,
-      1448
+      1200,
+      791
     ],
-    "display_index": 3
+    "display_index": 3,
+    "bytes": 94242
   },
   {
     "index": 4,
     "src": "static/images/showcase/photographer/photographer_pair_04.jpg",
     "source_path": "/mnt/workspacedir/lijiayu/data/AesCrop/composition_benchmark/showcase_gpt_enhanced_paired/Standard/00000270_2018-06-12--5b1fc5bb278bd3549b543e27_5481ceaa-c132_f51100e2_standard_auto_ratio_ffbf38.webp",
     "size": [
-      2920,
-      1087
+      1200,
+      447
     ],
-    "display_index": 4
+    "display_index": 4,
+    "bytes": 93548
   },
   {
     "index": 5,
     "src": "static/images/showcase/photographer/photographer_pair_05.jpg",
     "source_path": "/mnt/workspacedir/lijiayu/data/AesCrop/composition_benchmark/showcase_gpt_enhanced_paired/Standard/00000377_2018-06-26--5b32442b07ef1c561a664948_9b7d86de-fbda_6fee14af_standard_auto_ratio_ffbf38.webp",
     "size": [
-      2922,
-      1085
+      1200,
+      446
     ],
-    "display_index": 5
+    "display_index": 5,
+    "bytes": 104447
   },
   {
     "index": 6,
     "src": "static/images/showcase/photographer/photographer_pair_06.jpg",
     "source_path": "/mnt/workspacedir/lijiayu/data/AesCrop/composition_benchmark/showcase_gpt_enhanced_paired/Standard/00000397_2018-06-29--5b35ed8c910cf66739b04bf6_25bc7fbb-5744_cac2a3da_standard_auto_ratio_ffbf38.webp",
     "size": [
-      2943,
-      1086
+      1200,
+      443
     ],
-    "display_index": 6
+    "display_index": 6,
+    "bytes": 91814
   },
   {
     "index": 7,
     "src": "static/images/showcase/photographer/photographer_pair_07.jpg",
     "source_path": "/mnt/workspacedir/lijiayu/data/AesCrop/composition_benchmark/showcase_gpt_enhanced_paired/Standard/00000540_2018-08-03--5b6407d907ef1c7b46b79eff_9aebb389-d62b_724ca734_standard_auto_ratio_ffbf38.webp",
     "size": [
-      2920,
-      1086
+      1200,
+      446
     ],
-    "display_index": 7
+    "display_index": 7,
+    "bytes": 118359
   },
   {
     "index": 8,
     "src": "static/images/showcase/photographer/photographer_pair_08.jpg",
     "source_path": "/mnt/workspacedir/lijiayu/data/AesCrop/composition_benchmark/showcase_gpt_enhanced_paired/Standard/00000545_2018-08-04--5b652220672e1436f6c85269_6fc2ae74-15bb_da4d288b_standard_auto_ratio_ffbf38.webp",
     "size": [
-      2197,
-      1450
+      1200,
+      792
     ],
-    "display_index": 8
+    "display_index": 8,
+    "bytes": 167925
   },
   {
     "index": 9,
     "src": "static/images/showcase/photographer/photographer_pair_09.jpg",
     "source_path": "/mnt/workspacedir/lijiayu/data/AesCrop/composition_benchmark/showcase_gpt_enhanced_paired/Standard/00000660_2018-08-26--5b82565a07ef1c09f5099403_9799d84a-0be3_98a96635_standard_auto_ratio_ffbf38.webp",
     "size": [
-      2925,
-      1148
+      1200,
+      471
     ],
-    "display_index": 9
+    "display_index": 9,
+    "bytes": 142974
   },
   {
     "index": 10,
     "src": "static/images/showcase/photographer/photographer_pair_10.jpg",
     "source_path": "/mnt/workspacedir/lijiayu/data/AesCrop/composition_benchmark/showcase_gpt_enhanced_paired/Standard/00000756_2018-10-03--5bb43046910cf646d8108e93_702582f1-4d1c_fa41b1d7_standard_auto_ratio_ffbf38.webp",
     "size": [
-      3051,
-      1039
+      1200,
+      409
     ],
-    "display_index": 10
+    "display_index": 10,
+    "bytes": 86951
   },
   {
     "index": 11,
     "src": "static/images/showcase/photographer/photographer_pair_11.jpg",
     "source_path": "/mnt/workspacedir/lijiayu/data/AesCrop/composition_benchmark/showcase_gpt_enhanced_paired/Standard/showcase_human_new__00000031_2017-06-21--594ac146b46c5d0d33aaf4a9_be79cb58-76a9_ba78af50_standard_auto_ratio_ffbf38.jpg",
     "size": [
-      2937,
-      1106
+      1200,
+      452
     ],
-    "display_index": 11
+    "display_index": 11,
+    "bytes": 183366
   },
   {
     "index": 12,
     "src": "static/images/showcase/photographer/photographer_pair_12.jpg",
     "source_path": "/mnt/workspacedir/lijiayu/data/AesCrop/composition_benchmark/showcase_gpt_enhanced_paired/Standard/showcase_human_new__00000389_2018-08-02--5b62b26b910cf605172a9534_cf78d655-c423_5a0fa7c5_standard_auto_ratio_ffbf38.jpg",
     "size": [
-      3006,
-      1085
+      1200,
+      433
     ],
-    "display_index": 12
+    "display_index": 12,
+    "bytes": 145143
   },
   {
     "index": 13,
     "src": "static/images/showcase/photographer/photographer_pair_13.jpg",
     "source_path": "/mnt/workspacedir/lijiayu/data/AesCrop/composition_benchmark/showcase_gpt_enhanced_paired/Standard/showcase_human_new__00000407_2018-08-05--5b674dc7910cf67d5458276e_96a9e562-3c81_547320bb_standard_auto_ratio_ffbf38.jpg",
     "size": [
-      2218,
-      1448
+      1200,
+      783
     ],
-    "display_index": 13
+    "display_index": 13,
+    "bytes": 225507
   },
   {
     "index": 14,
     "src": "static/images/showcase/photographer/photographer_pair_14.jpg",
     "source_path": "/mnt/workspacedir/lijiayu/data/AesCrop/composition_benchmark/showcase_gpt_enhanced_paired/Standard/showcase_human_new__00000542_2018-09-09--5b950c04910cf6126dfdb121_4c6fa2cf-bfab_29b8de13_standard_auto_ratio_ffbf38.jpg",
     "size": [
-      2302,
-      1449
+      1200,
+      755
     ],
-    "display_index": 14
+    "display_index": 14,
+    "bytes": 147024
   },
   {
     "index": 15,
     "src": "static/images/showcase/photographer/photographer_pair_15.jpg",
     "source_path": "/mnt/workspacedir/lijiayu/data/AesCrop/composition_benchmark/showcase_gpt_enhanced_paired/Standard/showcase_human_new__00000648_2018-10-09--5bbc508c910cf646d912eeee_c6c2b251-ec25_d0206d88_standard_auto_ratio_ffbf38.jpg",
     "size": [
-      3136,
-      1086
+      1200,
+      416
     ],
-    "display_index": 15
+    "display_index": 15,
+    "bytes": 52520
   },
   {
     "index": 16,
     "src": "static/images/showcase/photographer/photographer_pair_16.jpg",
     "source_path": "/mnt/workspacedir/lijiayu/data/AesCrop/composition_benchmark/showcase_gpt_enhanced_paired/Standard/showcase_human_new__00000813_2018-12-18--5c18d52b000000000a03741f_1d3b4a94-beb5_6ca54a36_standard_auto_ratio_ffbf38.jpg",
     "size": [
-      2197,
-      1450
+      1200,
+      792
     ],
-    "display_index": 16
+    "display_index": 16,
+    "bytes": 112286
   },
   {
     "index": 17,
     "src": "static/images/showcase/photographer/photographer_pair_17.jpg",
     "source_path": "/mnt/workspacedir/lijiayu/data/AesCrop/composition_benchmark/showcase_gpt_enhanced_paired/Standard/showcase_nohuman_new__00000006_2016-07-25--5795b538faa0525af889c729_5faa27e8-6c31_10b3ec6e_standard_auto_ratio_ffbf38.jpg",
     "size": [
-      2845,
-      1122
+      1200,
+      473
     ],
-    "display_index": 17
+    "display_index": 17,
+    "bytes": 67734
   },
   {
     "index": 18,
     "src": "static/images/showcase/photographer/photographer_pair_18.jpg",
     "source_path": "/mnt/workspacedir/lijiayu/data/AesCrop/composition_benchmark/showcase_gpt_enhanced_paired/Standard/showcase_nohuman_new__00000374_2018-06-13--5b2119500c17b862497f09b8_be0f7194-41b5_04deaadf_standard_auto_ratio_ffbf38.jpg",
     "size": [
-      2922,
-      1086
+      1200,
+      446
     ],
-    "display_index": 18
+    "display_index": 18,
+    "bytes": 102690
   },
   {
     "index": 19,
     "src": "static/images/showcase/photographer/photographer_pair_19.jpg",
     "source_path": "/mnt/workspacedir/lijiayu/data/AesCrop/composition_benchmark/showcase_gpt_enhanced_paired/Standard/showcase_nohuman_new__00000378_2018-06-14--5b21fdc874da534e43c8906e_1040d2ab-4a3e_bfdc9253_standard_auto_ratio_ffbf38.jpg",
     "size": [
-      2921,
-      1088
+      1200,
+      447
     ],
-    "display_index": 19
+    "display_index": 19,
+    "bytes": 122116
   },
   {
     "index": 21,
     "src": "static/images/showcase/photographer/photographer_pair_21.jpg",
     "source_path": "/mnt/workspacedir/lijiayu/data/AesCrop/composition_benchmark/showcase_gpt_enhanced_paired/Standard/showcase_nohuman_new__00000474_2018-07-13--5b482e2f910cf646d2a673b1_10cd96d0-247c_ddccf4e3_standard_auto_ratio_ffbf38.jpg",
     "size": [
-      2920,
-      1086
+      1200,
+      446
     ],
-    "display_index": 20
+    "display_index": 20,
+    "bytes": 104599
   },
   {
     "index": 22,
     "src": "static/images/showcase/photographer/photographer_pair_22.jpg",
     "source_path": "/mnt/workspacedir/lijiayu/data/AesCrop/composition_benchmark/showcase_gpt_enhanced_paired/Standard/showcase_nohuman_new__00000507_2018-07-18--5b4ec60b672e140539a86355_45a3df44-e5a9_a7e4702c_standard_auto_ratio_ffbf38.jpg",
     "size": [
-      2924,
-      1087
+      1200,
+      446
     ],
-    "display_index": 21
+    "display_index": 21,
+    "bytes": 132488
   },
   {
     "index": 23,
     "src": "static/images/showcase/photographer/photographer_pair_23.jpg",
     "source_path": "/mnt/workspacedir/lijiayu/data/AesCrop/composition_benchmark/showcase_gpt_enhanced_paired/Standard/showcase_nohuman_new__00000513_2018-07-19--5b4fff67672e140e7e59cfbe_eaa66440-aead_52c6e89f_standard_auto_ratio_ffbf38.jpg",
     "size": [
-      2919,
-      1087
+      1200,
+      447
     ],
-    "display_index": 22
+    "display_index": 22,
+    "bytes": 92175
   },
   {
     "index": 24,
     "src": "static/images/showcase/photographer/photographer_pair_24.jpg",
     "source_path": "/mnt/workspacedir/lijiayu/data/AesCrop/composition_benchmark/showcase_gpt_enhanced_paired/Standard/showcase_nohuman_new__00000514_2018-07-19--5b505a06672e140e7659aa05_36b845cb-fe36_766707fb_standard_auto_ratio_ffbf38.jpg",
     "size": [
-      2920,
-      1114
+      1200,
+      458
     ],
-    "display_index": 23
+    "display_index": 23,
+    "bytes": 105841
   },
   {
     "index": 25,
     "src": "static/images/showcase/photographer/photographer_pair_25.jpg",
     "source_path": "/mnt/workspacedir/lijiayu/data/AesCrop/composition_benchmark/showcase_gpt_enhanced_paired/Standard/showcase_nohuman_new__00000541_2018-07-27--5b5b112c910cf6051b2a789a_80f04284-ba3e_32779084_standard_auto_ratio_ffbf38.jpg",
     "size": [
-      2920,
-      1086
+      1200,
+      446
     ],
-    "display_index": 24
+    "display_index": 24,
+    "bytes": 119907
   },
   {
     "index": 26,
     "src": "static/images/showcase/photographer/photographer_pair_26.jpg",
     "source_path": "/mnt/workspacedir/lijiayu/data/AesCrop/composition_benchmark/showcase_gpt_enhanced_paired/Standard/showcase_nohuman_new__00000553_2018-07-29--5b5d9178672e143e42728320_c9ce2cdf-85a3_f3c4a125_standard_auto_ratio_ffbf38.jpg",
     "size": [
-      2920,
-      1086
+      1200,
+      446
     ],
-    "display_index": 25
+    "display_index": 25,
+    "bytes": 115518
   },
   {
     "index": 27,
     "src": "static/images/showcase/photographer/photographer_pair_27.jpg",
     "source_path": "/mnt/workspacedir/lijiayu/data/AesCrop/composition_benchmark/showcase_gpt_enhanced_paired/Standard/showcase_nohuman_new__00000557_2018-07-29--5b5d9a44910cf605122a9a3f_98d81f4b-99d5_d02795b5_standard_auto_ratio_ffbf38.jpg",
     "size": [
-      2920,
-      1087
+      1200,
+      447
     ],
-    "display_index": 26
+    "display_index": 26,
+    "bytes": 111834
   },
   {
     "index": 28,
     "src": "static/images/showcase/photographer/photographer_pair_28.jpg",
     "source_path": "/mnt/workspacedir/lijiayu/data/AesCrop/composition_benchmark/showcase_gpt_enhanced_paired/Standard/showcase_nohuman_new__00000652_2018-08-12--5b700c1b910cf6672800e60b_74b93520-b8ef_c26fa9c3_standard_auto_ratio_ffbf38.jpg",
     "size": [
-      2923,
-      1086
+      1200,
+      446
     ],
-    "display_index": 27
+    "display_index": 27,
+    "bytes": 78280
   },
   {
     "index": 29,
     "src": "static/images/showcase/photographer/photographer_pair_29.jpg",
     "source_path": "/mnt/workspacedir/lijiayu/data/AesCrop/composition_benchmark/showcase_gpt_enhanced_paired/Standard/showcase_nohuman_new_new__00000119_2017-12-28--5a443e0deb00f3741d830e4f_8b73be9f-8f1e_a7f265b9_standard_auto_ratio_ffbf38.jpg",
     "size": [
-      3170,
-      1086
+      1200,
+      411
     ],
-    "display_index": 28
+    "display_index": 28,
+    "bytes": 112260
   },
   {
     "index": 30,
     "src": "static/images/showcase/photographer/photographer_pair_30.jpg",
     "source_path": "/mnt/workspacedir/lijiayu/data/AesCrop/composition_benchmark/showcase_gpt_enhanced_paired/Standard/showcase_nohuman_new_new__00000157_2018-02-01--5a72c1cbc8e55d5c2f1ec5fe_c836e200-7453_16fe4a4e_standard_auto_ratio_ffbf38.jpg",
     "size": [
-      2240,
-      1473
+      1200,
+      789
     ],
-    "display_index": 29
+    "display_index": 29,
+    "bytes": 212812
   },
   {
     "index": 31,
     "src": "static/images/showcase/photographer/photographer_pair_31.jpg",
     "source_path": "/mnt/workspacedir/lijiayu/data/AesCrop/composition_benchmark/showcase_gpt_enhanced_paired/Standard/showcase_nohuman_new_new__00000169_2018-02-06--5a7971be910cf6674870cc44_4b9e1783-433c_b457f423_standard_auto_ratio_ffbf38.jpg",
     "size": [
-      3072,
-      1086
+      1200,
+      424
     ],
-    "display_index": 30
+    "display_index": 30,
+    "bytes": 115376
   },
   {
     "index": 32,
     "src": "static/images/showcase/photographer/photographer_pair_32.jpg",
     "source_path": "/mnt/workspacedir/lijiayu/data/AesCrop/composition_benchmark/showcase_gpt_enhanced_paired/Standard/showcase_nohuman_new_new__00000194_2018-02-18--5a897d0ea7918f5f97fd8bba_e1eb3b8c-6214_2380f4c8_standard_auto_ratio_ffbf38.jpg",
     "size": [
-      2920,
-      1086
+      1200,
+      446
     ],
-    "display_index": 31
+    "display_index": 31,
+    "bytes": 113228
   },
   {
     "index": 33,
     "src": "static/images/showcase/photographer/photographer_pair_33.jpg",
     "source_path": "/mnt/workspacedir/lijiayu/data/AesCrop/composition_benchmark/showcase_gpt_enhanced_paired/Standard/showcase_nohuman_new_new__00000203_2018-02-28--5a9621a47873eb5df61b65eb_4d965f6c-6236_a2804cb8_standard_auto_ratio_ffbf38.jpg",
     "size": [
-      3010,
-      1086
+      1200,
+      433
     ],
-    "display_index": 32
+    "display_index": 32,
+    "bytes": 67201
   }
 ]
