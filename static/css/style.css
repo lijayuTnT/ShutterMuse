@@ -411,6 +411,134 @@ pre code {
   opacity: 0.82;
 }
 
+
+.section-kicker {
+  margin-bottom: 0.35rem;
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.showcase-section {
+  overflow: hidden;
+  padding-right: 0;
+  padding-left: 0;
+  background: #070707;
+}
+
+.showcase-title-block {
+  width: min(900px, calc(100% - 2rem));
+  margin: 0 auto 2rem;
+}
+
+.showcase-caption {
+  max-width: 720px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.65;
+  text-align: center;
+}
+
+.showcase-caption-below {
+  display: block;
+  margin: 0.45rem auto 0;
+  text-align: center;
+}
+
+.uso-carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 1.55rem 0 1.65rem;
+  cursor: grab;
+  touch-action: pan-y;
+}
+
+.uso-carousel-container.is-dragging {
+  cursor: grabbing;
+}
+
+.uso-carousel {
+  display: flex;
+  width: max-content;
+  min-width: max-content;
+  flex-wrap: nowrap;
+  align-items: center;
+  animation-play-state: running;
+  cursor: grab;
+  user-select: none;
+  will-change: transform;
+}
+
+.uso-carousel:hover {
+  animation-play-state: paused;
+}
+
+.uso-carousel-scroll-left {
+  animation: uso-scroll-left 180s linear infinite;
+}
+
+.uso-carousel img {
+  display: block;
+  width: auto;
+  max-width: none;
+  height: 360px;
+  margin-right: 4px;
+  border-radius: 4px;
+  filter: brightness(0.92);
+  position: relative;
+  z-index: 1;
+  transform-origin: center center;
+  transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.uso-carousel:not(.is-dragging) img:hover {
+  transform: scale(1.08);
+  filter: brightness(1.13);
+  box-shadow: 0 18px 40px rgba(249, 249, 248, 0.48);
+  z-index: 10;
+}
+
+.comparison-section {
+  background: #070707;
+}
+
+.comparison-figures {
+  display: grid;
+  gap: 1.4rem;
+  margin-top: 2rem;
+}
+
+.comparison-figure {
+  margin: 0;
+}
+
+.comparison-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+}
+
+@keyframes uso-scroll-left {
+  0% {
+    transform: translateX(0);
+    will-change: transform;
+  }
+  100% {
+    transform: translateX(-50%);
+    will-change: transform;
+  }
+}
+
 .bibtex {
   margin-top: 1.5rem;
 }
@@ -447,6 +575,15 @@ pre code {
 
   .resource-grid {
     grid-template-columns: 1fr;
+  }
+
+  .uso-carousel img {
+    width: auto;
+    height: 300px;
+  }
+
+  .uso-carousel-scroll-left {
+    animation-duration: 140s;
   }
 
   .authors,

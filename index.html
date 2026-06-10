@@ -13,6 +13,22 @@
   <link href="https://fonts.googleapis.com/css?family=Kaushan+Script:regular" rel="stylesheet">
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/style.css">
+
+  <style id="showcase-inline-style">
+    .showcase-section { overflow: hidden !important; padding-left: 0 !important; padding-right: 0 !important; background: #070707 !important; }
+    .showcase-section .showcase-title-block { margin-bottom: 1.15rem !important; }
+    .showcase-section .uso-carousel-container { position: relative !important; width: 100vw !important; max-width: 100vw !important; margin-left: calc(50% - 50vw) !important; overflow: hidden !important; padding: 1.55rem 0 1.65rem !important; white-space: nowrap !important; cursor: grab !important; touch-action: pan-y !important; }
+    .showcase-section .uso-carousel { display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; align-items: center !important; width: max-content !important; min-width: max-content !important; white-space: nowrap !important; animation: uso-scroll-left 180s linear infinite !important; cursor: grab !important; user-select: none !important; will-change: transform !important; }
+    .showcase-section .uso-carousel.is-dragging { cursor: grabbing !important; }
+    .showcase-section .uso-carousel:hover { animation-play-state: paused !important; }
+    .showcase-section .uso-carousel img { display: block !important; flex: 0 0 auto !important; width: auto !important; max-width: none !important; height: 360px !important; margin: 0 4px 0 0 !important; border-radius: 4px !important; filter: brightness(0.92) !important; position: relative !important; z-index: 1 !important; transform-origin: center center !important; transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease !important; user-select: none !important; -webkit-user-drag: none !important; }
+    .showcase-section .uso-carousel:not(.is-dragging) img:hover { transform: scale(1.08) !important; filter: brightness(1.13) !important; box-shadow: 0 18px 40px rgba(249, 249, 248, 0.48) !important; z-index: 10 !important; }
+    .showcase-section .showcase-caption-below { margin: 0.45rem auto 0 !important; }
+    #pose-showcase .uso-carousel { animation-duration: 220s !important; }
+    #pose-showcase .uso-carousel img { height: 390px !important; }
+    @keyframes uso-scroll-left { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
+    @media screen and (max-width: 640px) { .showcase-section .uso-carousel img { height: 300px !important; } .showcase-section .uso-carousel { animation-duration: 140s !important; } #pose-showcase .uso-carousel img { height: 320px !important; } }
+  </style>
 </head>
 <body>
   <header class="hero hero-gradient">
@@ -62,8 +78,148 @@
       <div class="container is-max-desktop">
         <h2 class="section-title">Abstract</h2>
         <p>
-          Real-world photography often requires capture-time decisions from both the photographer and the subject: the photographer must decide whether to keep, refine, or reject the current framing, while the subject may need pose guidance that better fits the scene. However, existing aesthetic cropping benchmarks typically formulate photography guidance as post-hoc crop prediction and largely ignore subject-side pose recommendation, leaving the capture-time guidance capabilities of multimodal large language models (MLLMs) underexplored. To address this gap, we introduce CaptureGuide-Bench, a benchmark for evaluating capture-time photography guidance through two complementary tasks: photographer-side composition decision and refinement, and subject-side scene-conditioned pose recommendation. Our evaluation of open-source and proprietary MLLMs shows that existing models often over-predict crop refinement and struggle to provide structured, actionable pose guidance. To support model development, we further construct CaptureGuide-Dataset, a large-scale dataset of approximately 130K samples with textual rationales and structured visual annotations, and develop ShutterMuse, a unified MLLM trained with supervised and reinforcement fine-tuning. Experiments on CaptureGuide-Bench show that ShutterMuse achieves state-of-the-art photographer-side guidance and competitive subject-side pose recommendation with substantially lower inference cost, demonstrating the potential of MLLMs as interactive assistants for photography during image capture.
+          Real-world photography requires capture-time guidance for both camera framing and subject pose. Yet existing aesthetic cropping benchmarks mainly evaluate post-hoc crop prediction and overlook subject-side recommendations, leaving the capture-time guidance capabilities of multimodal large language models (MLLMs) underexplored. To address this gap, we introduce \textbf{CaptureGuide-Bench}, a benchmark with two complementary tasks: photographer-side composition decision and refinement, and subject-side scene-conditioned pose recommendation. Our evaluation reveals complementary limitations: general-purpose MLLMs can make composition decisions but lack precise refinement localization, while specialized aesthetic cropping models localize crops effectively but are limited to refinement; neither provides structured, actionable pose guidance. To support model development, we further construct \textbf{CaptureGuide-Dataset}, comprising 130K samples with textual rationales and structured visual annotations, and develop \textbf{ShutterMuse}, a unified MLLM trained with supervised and reinforcement fine-tuning. Experiments on CaptureGuide-Bench show that ShutterMuse achieves state-of-the-art photographer-side guidance and competitive subject-side pose recommendation with substantially lower inference cost, demonstrating the potential of MLLMs as interactive assistants for photography during image capture.
         </p>
+      </div>
+    </section>
+
+
+
+    <section class="section showcase-section" id="standard-showcase">
+      <div class="showcase-title-block">
+        <h2 class="section-title">Photographer-side Guidance</h2>
+      </div>
+      <div class="uso-carousel-container" style="position:relative;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);overflow:hidden;white-space:nowrap;">
+        <div class="uso-carousel uso-carousel-scroll-left" style="display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;width:max-content;min-width:max-content;white-space:nowrap;animation:uso-scroll-left 180s linear infinite;">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_01.jpg" alt="Photographer-side guidance showcase 01" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_02.jpg" alt="Photographer-side guidance showcase 02" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_03.jpg" alt="Photographer-side guidance showcase 03" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_04.jpg" alt="Photographer-side guidance showcase 04" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_05.jpg" alt="Photographer-side guidance showcase 05" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_06.jpg" alt="Photographer-side guidance showcase 06" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_07.jpg" alt="Photographer-side guidance showcase 07" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_08.jpg" alt="Photographer-side guidance showcase 08" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_09.jpg" alt="Photographer-side guidance showcase 09" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_10.jpg" alt="Photographer-side guidance showcase 10" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_11.jpg" alt="Photographer-side guidance showcase 11" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_12.jpg" alt="Photographer-side guidance showcase 12" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_13.jpg" alt="Photographer-side guidance showcase 13" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_14.jpg" alt="Photographer-side guidance showcase 14" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_15.jpg" alt="Photographer-side guidance showcase 15" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_16.jpg" alt="Photographer-side guidance showcase 16" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_17.jpg" alt="Photographer-side guidance showcase 17" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_18.jpg" alt="Photographer-side guidance showcase 18" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_19.jpg" alt="Photographer-side guidance showcase 19" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_20.jpg" alt="Photographer-side guidance showcase 20" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_21.jpg" alt="Photographer-side guidance showcase 21" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_22.jpg" alt="Photographer-side guidance showcase 22" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_23.jpg" alt="Photographer-side guidance showcase 23" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_24.jpg" alt="Photographer-side guidance showcase 24" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_25.jpg" alt="Photographer-side guidance showcase 25" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_26.jpg" alt="Photographer-side guidance showcase 26" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_27.jpg" alt="Photographer-side guidance showcase 27" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_28.jpg" alt="Photographer-side guidance showcase 28" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_29.jpg" alt="Photographer-side guidance showcase 29" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_30.jpg" alt="Photographer-side guidance showcase 30" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_31.jpg" alt="Photographer-side guidance showcase 31" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_32.jpg" alt="Photographer-side guidance showcase 32" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_33.jpg" alt="Photographer-side guidance showcase 33" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_01.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_02.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_03.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_04.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_05.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_06.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_07.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_08.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_09.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_10.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_11.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_12.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_13.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_14.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_15.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_16.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_17.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_18.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_19.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_20.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_21.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_22.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_23.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_24.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_25.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_26.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_27.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_28.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_29.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_30.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_31.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_32.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:360px;margin-right:4px;border-radius:4px;" src="static/images/showcase/photographer/photographer_pair_33.jpg" alt="" loading="lazy" aria-hidden="true">
+        </div>
+      </div>
+      <p class="showcase-caption showcase-caption-below">Original photos are paired with ShutterMuse's recommended crops.</p>
+    </section>
+
+    <section class="section showcase-section" id="pose-showcase">
+      <div class="container is-max-desktop has-text-centered showcase-title-block">
+        <h2 class="section-title">Subject-side Guidance</h2>
+      </div>
+      <div class="uso-carousel-container" aria-label="Subject-side pose guidance showcase">
+        <div class="uso-carousel">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_01.jpg" alt="Subject-side pose guidance showcase 01" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_02.jpg" alt="Subject-side pose guidance showcase 02" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_03.jpg" alt="Subject-side pose guidance showcase 03" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_04.jpg" alt="Subject-side pose guidance showcase 04" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_05.jpg" alt="Subject-side pose guidance showcase 05" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_06.jpg" alt="Subject-side pose guidance showcase 06" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_07.jpg" alt="Subject-side pose guidance showcase 07" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_08.jpg" alt="Subject-side pose guidance showcase 08" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_09.jpg" alt="Subject-side pose guidance showcase 09" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_10.jpg" alt="Subject-side pose guidance showcase 10" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_11.jpg" alt="Subject-side pose guidance showcase 11" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_12.jpg" alt="Subject-side pose guidance showcase 12" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_13.jpg" alt="Subject-side pose guidance showcase 13" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_14.jpg" alt="Subject-side pose guidance showcase 14" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_15.jpg" alt="Subject-side pose guidance showcase 15" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_16.jpg" alt="Subject-side pose guidance showcase 16" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_17.jpg" alt="Subject-side pose guidance showcase 17" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_18.jpg" alt="Subject-side pose guidance showcase 18" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_01.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_02.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_03.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_04.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_05.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_06.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_07.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_08.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_09.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_10.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_11.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_12.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_13.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_14.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_15.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_16.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_17.jpg" alt="" loading="lazy" aria-hidden="true">
+            <img style="display:block;flex:0 0 auto;width:auto;max-width:none;height:390px;margin-right:4px;border-radius:4px;" src="static/images/showcase/pose/pose_pair_18.jpg" alt="" loading="lazy" aria-hidden="true">
+        </div>
+      </div>
+      <p class="showcase-caption showcase-caption-below">Keypoint skeletons generated by ShutterMuse are used to guide GPT-Image-2 in rendering human pose images.</p>
+    </section>
+
+    <section class="section comparison-section" id="comparison">
+      <div class="container is-max-widescreen has-text-centered">
+        <h2 class="section-title">Comparison with State-of-the-Art Methods</h2>
+        <div class="comparison-figures">
+          <figure class="comparison-figure">
+            <img src="static/images/comparison/comparison_psg.jpg" alt="Qualitative comparison of photographer-side guidance with state-of-the-art methods" loading="lazy">
+          </figure>
+          <figure class="comparison-figure">
+            <img src="static/images/comparison/comparison_pose.jpg" alt="Qualitative comparison of subject-side pose guidance with state-of-the-art methods" loading="lazy">
+          </figure>
+        </div>
       </div>
     </section>
 
@@ -87,5 +243,115 @@
       </p>
     </div>
   </footer>
+  <script>
+    window.addEventListener('load', function () {
+      document.querySelectorAll('.showcase-section').forEach(function (section) {
+        const container = section.querySelector('.uso-carousel-container');
+        const carousel = section.querySelector('.uso-carousel');
+        if (!container || !carousel) return;
+
+        const images = Array.from(carousel.querySelectorAll('img'));
+        if (images.length === 0) return;
+
+        let isDragging = false;
+        let isMouseOver = false;
+        let startX = 0;
+        let currentX = 0;
+        let loopWidth = 0;
+        let lastFrame = performance.now();
+        const duration = section.id === 'pose-showcase' ? 220000 : 180000;
+        const scrollDirection = section.id === 'pose-showcase' ? 1 : -1;
+
+        function measureLoop() {
+          loopWidth = carousel.scrollWidth / 2;
+        }
+
+        function normalizePosition(value) {
+          if (!loopWidth) return value;
+          if (scrollDirection > 0) {
+            while (value < 0) value += loopWidth;
+            while (value >= loopWidth) value -= loopWidth;
+          } else {
+            while (value <= -loopWidth) value += loopWidth;
+            while (value > 0) value -= loopWidth;
+          }
+          return value;
+        }
+
+        function setPosition(value, shouldNormalize) {
+          currentX = shouldNormalize ? normalizePosition(value) : value;
+          carousel.style.transform = `translate3d(${currentX}px, 0, 0)`;
+        }
+
+        function setDragging(value) {
+          isDragging = value;
+          carousel.classList.toggle('is-dragging', value);
+          container.classList.toggle('is-dragging', value);
+        }
+
+        function autoScroll(now) {
+          const delta = now - lastFrame;
+          lastFrame = now;
+
+          if (!isDragging && !isMouseOver && loopWidth > 0) {
+            setPosition(currentX + scrollDirection * (loopWidth / duration) * delta, true);
+          }
+
+          requestAnimationFrame(autoScroll);
+        }
+
+        images.forEach(function (image) {
+          image.setAttribute('draggable', 'false');
+          if (!image.complete) image.addEventListener('load', measureLoop, { once: true });
+        });
+
+        carousel.style.setProperty('animation', 'none', 'important');
+        carousel.classList.add('is-js-controlled');
+        measureLoop();
+        window.addEventListener('resize', measureLoop);
+
+        container.addEventListener('mouseenter', function () {
+          isMouseOver = true;
+        });
+
+        container.addEventListener('mouseleave', function () {
+          isMouseOver = false;
+          if (isDragging) {
+            setDragging(false);
+            setPosition(currentX, true);
+          }
+        });
+
+        container.addEventListener('pointerdown', function (event) {
+          if (event.button !== undefined && event.button !== 0) return;
+          event.preventDefault();
+          measureLoop();
+          setDragging(true);
+          startX = event.clientX - currentX;
+          container.setPointerCapture(event.pointerId);
+        });
+
+        container.addEventListener('pointermove', function (event) {
+          if (!isDragging) return;
+          event.preventDefault();
+          setPosition(event.clientX - startX, false);
+        });
+
+        function endDrag(event) {
+          if (!isDragging) return;
+          setDragging(false);
+          setPosition(currentX, true);
+          if (event && container.hasPointerCapture(event.pointerId)) {
+            container.releasePointerCapture(event.pointerId);
+          }
+        }
+
+        container.addEventListener('pointerup', endDrag);
+        container.addEventListener('pointercancel', endDrag);
+        container.addEventListener('lostpointercapture', endDrag);
+        requestAnimationFrame(autoScroll);
+      });
+    });
+  </script>
 </body>
 </html>
