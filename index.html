@@ -260,7 +260,6 @@
         let loopWidth = 0;
         let lastFrame = performance.now();
         const duration = section.id === 'pose-showcase' ? 220000 : 180000;
-        const scrollDirection = section.id === 'pose-showcase' ? 1 : -1;
 
         function measureLoop() {
           loopWidth = carousel.scrollWidth / 2;
@@ -268,13 +267,8 @@
 
         function normalizePosition(value) {
           if (!loopWidth) return value;
-          if (scrollDirection > 0) {
-            while (value < 0) value += loopWidth;
-            while (value >= loopWidth) value -= loopWidth;
-          } else {
-            while (value <= -loopWidth) value += loopWidth;
-            while (value > 0) value -= loopWidth;
-          }
+          while (value <= -loopWidth) value += loopWidth;
+          while (value > 0) value -= loopWidth;
           return value;
         }
 
@@ -294,7 +288,7 @@
           lastFrame = now;
 
           if (!isDragging && !isMouseOver && loopWidth > 0) {
-            setPosition(currentX + scrollDirection * (loopWidth / duration) * delta, true);
+            setPosition(currentX - (loopWidth / duration) * delta, true);
           }
 
           requestAnimationFrame(autoScroll);
@@ -302,7 +296,12 @@
 
         images.forEach(function (image) {
           image.setAttribute('draggable', 'false');
-          if (!image.complete) image.addEventListener('load', measureLoop, { once: true });
+          if (!image.complete) {
+            image.addEventListener('load', function () {
+              measureLoop();
+              setPosition(currentX, true);
+            }, { once: true });
+          }
         });
 
         carousel.style.setProperty('animation', 'none', 'important');
