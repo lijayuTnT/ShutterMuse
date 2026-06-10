@@ -6,7 +6,8 @@
     "size": [
       2922,
       1086
-    ]
+    ],
+    "display_index": 1
   },
   {
     "index": 2,
@@ -15,7 +16,8 @@
     "size": [
       2197,
       1449
-    ]
+    ],
+    "display_index": 2
   },
   {
     "index": 3,
@@ -24,7 +26,8 @@
     "size": [
       2196,
       1448
-    ]
+    ],
+    "display_index": 3
   },
   {
     "index": 4,
@@ -33,7 +36,8 @@
     "size": [
       2920,
       1087
-    ]
+    ],
+    "display_index": 4
   },
   {
     "index": 5,
@@ -42,7 +46,8 @@
     "size": [
       2922,
       1085
-    ]
+    ],
+    "display_index": 5
   },
   {
     "index": 6,
@@ -51,7 +56,8 @@
     "size": [
       2943,
       1086
-    ]
+    ],
+    "display_index": 6
   },
   {
     "index": 7,
@@ -60,7 +66,8 @@
     "size": [
       2920,
       1086
-    ]
+    ],
+    "display_index": 7
   },
   {
     "index": 8,
@@ -69,7 +76,8 @@
     "size": [
       2197,
       1450
-    ]
+    ],
+    "display_index": 8
   },
   {
     "index": 9,
@@ -78,7 +86,8 @@
     "size": [
       2925,
       1148
-    ]
+    ],
+    "display_index": 9
   },
   {
     "index": 10,
@@ -87,7 +96,8 @@
     "size": [
       3051,
       1039
-    ]
+    ],
+    "display_index": 10
   },
   {
     "index": 11,
@@ -96,7 +106,8 @@
     "size": [
       2937,
       1106
-    ]
+    ],
+    "display_index": 11
   },
   {
     "index": 12,
@@ -105,7 +116,8 @@
     "size": [
       3006,
       1085
-    ]
+    ],
+    "display_index": 12
   },
   {
     "index": 13,
@@ -114,7 +126,8 @@
     "size": [
       2218,
       1448
-    ]
+    ],
+    "display_index": 13
   },
   {
     "index": 14,
@@ -123,7 +136,8 @@
     "size": [
       2302,
       1449
-    ]
+    ],
+    "display_index": 14
   },
   {
     "index": 15,
@@ -132,7 +146,8 @@
     "size": [
       3136,
       1086
-    ]
+    ],
+    "display_index": 15
   },
   {
     "index": 16,
@@ -141,7 +156,8 @@
     "size": [
       2197,
       1450
-    ]
+    ],
+    "display_index": 16
   },
   {
     "index": 17,
@@ -150,7 +166,8 @@
     "size": [
       2845,
       1122
-    ]
+    ],
+    "display_index": 17
   },
   {
     "index": 18,
@@ -159,7 +176,8 @@
     "size": [
       2922,
       1086
-    ]
+    ],
+    "display_index": 18
   },
   {
     "index": 19,
@@ -168,16 +186,8 @@
     "size": [
       2921,
       1088
-    ]
-  },
-  {
-    "index": 20,
-    "src": "static/images/showcase/photographer/photographer_pair_20.jpg",
-    "source_path": "/mnt/workspacedir/lijiayu/data/AesCrop/composition_benchmark/showcase_gpt_enhanced_paired/Standard/showcase_nohuman_new__00000455_2018-07-05--5b3dcd2d910cf64c094df001_4c1d7bc2-16b7_d4e10896_standard_auto_ratio_ffbf38.jpg",
-    "size": [
-      2197,
-      1450
-    ]
+    ],
+    "display_index": 19
   },
   {
     "index": 21,
@@ -186,7 +196,8 @@
     "size": [
       2920,
       1086
-    ]
+    ],
+    "display_index": 20
   },
   {
     "index": 22,
@@ -195,7 +206,8 @@
     "size": [
       2924,
       1087
-    ]
+    ],
+    "display_index": 21
   },
   {
     "index": 23,
@@ -204,7 +216,8 @@
     "size": [
       2919,
       1087
-    ]
+    ],
+    "display_index": 22
   },
   {
     "index": 24,
@@ -213,7 +226,8 @@
     "size": [
       2920,
       1114
-    ]
+    ],
+    "display_index": 23
   },
   {
     "index": 25,
@@ -222,7 +236,8 @@
     "size": [
       2920,
       1086
-    ]
+    ],
+    "display_index": 24
   },
   {
     "index": 26,
@@ -231,7 +246,8 @@
     "size": [
       2920,
       1086
-    ]
+    ],
+    "display_index": 25
   },
   {
     "index": 27,
@@ -240,7 +256,8 @@
     "size": [
       2920,
       1087
-    ]
+    ],
+    "display_index": 26
   },
   {
     "index": 28,
@@ -249,7 +266,8 @@
     "size": [
       2923,
       1086
-    ]
+    ],
+    "display_index": 27
   },
   {
     "index": 29,
@@ -258,7 +276,8 @@
     "size": [
       3170,
       1086
-    ]
+    ],
+    "display_index": 28
   },
   {
     "index": 30,
@@ -267,7 +286,8 @@
     "size": [
       2240,
       1473
-    ]
+    ],
+    "display_index": 29
   },
   {
     "index": 31,
@@ -276,7 +296,8 @@
     "size": [
       3072,
       1086
-    ]
+    ],
+    "display_index": 30
   },
   {
     "index": 32,
@@ -285,7 +306,8 @@
     "size": [
       2920,
       1086
-    ]
+    ],
+    "display_index": 31
   },
   {
     "index": 33,
@@ -294,6 +316,7 @@
     "size": [
       3010,
       1086
-    ]
+    ],
+    "display_index": 32
   }
 ]
