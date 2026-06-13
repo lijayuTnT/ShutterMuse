@@ -158,6 +158,22 @@ def _append_ratio_instruction(prompt_text, target_ratio):
     return f"{prompt_text}\nPlease output the bounding box in {target_ratio} aspect ratio."
 
 
+def _format_prompt_with_ratio(prompt_template, prompt_ratio):
+    prompt_template = str(prompt_template or "").strip()
+    if prompt_template:
+        if "{prompt_ratio}" in prompt_template:
+            return prompt_template.format(prompt_ratio=prompt_ratio)
+        if "{target_ratio}" in prompt_template:
+            return prompt_template.format(target_ratio=prompt_ratio)
+        return prompt_template
+    return (
+        "Please identify the region with the best composition in the image. "
+        "Return a bounding box in the format (x1,y1),(x2,y2) with a "
+        f"{prompt_ratio} aspect ratio, where (x1,y1) is the top-left vertex and "
+        "(x2,y2) is the bottom-right vertex."
+    )
+
+
 def _expand_ratio_following_items(dataset):
     expanded = []
     for item in dataset:
@@ -994,9 +1010,7 @@ def worker_process(gpu_ids_str, subset_data, args, process_idx):
                 # print(prompt_ratio)
             else:
                 prompt_ratio = get_closest_ratio(image_resize.size[0], image_resize.size[1])
-                prompt_text = (
-                    f"Please identify the region with the best composition in the image. Return a bounding box in the format (x1,y1),(x2,y2) with a {prompt_ratio} aspect ratio, where (x1,y1) is the top-left vertex and (x2,y2) is the bottom-right vertex."
-                )
+                prompt_text = _format_prompt_with_ratio(args.prompt, prompt_ratio)
             if model_family == "internvl":
                 output_text = _internvl_generate_text(model, tokenizer, image_resize, prompt_text, args)
             else:

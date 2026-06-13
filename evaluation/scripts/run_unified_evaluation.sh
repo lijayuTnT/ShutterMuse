@@ -12,10 +12,10 @@ PHOTOGRAPHER_EVAL_DIR="${EVALUATION_DIR}/photographer-side"
 PHOTOGRAPHER_BENCHMARK_DIR="${PROJECT_ROOT}/Benchmark/photographer-side/composition_benchmark"
 PHOTOGRAPHER_DATA_PATH="${PHOTOGRAPHER_BENCHMARK_DIR}/meta_new.json"
 PHOTOGRAPHER_IMAGE_ROOT="${PHOTOGRAPHER_BENCHMARK_DIR}/original_composition"
-PHOTOGRAPHER_PROMPT="${PHOTOGRAPHER_PROMPT:-Recommend a composition.}"
+PHOTOGRAPHER_PROMPT="${PHOTOGRAPHER_PROMPT:-Please identify the region with the best composition in the image. Return a bounding box in the format (x1,y1),(x2,y2) with a {prompt_ratio} aspect ratio, where (x1,y1) is the top-left vertex and (x2,y2) is the bottom-right vertex.}"
 PHOTOGRAPHER_MODEL_PATH="${PHOTOGRAPHER_MODEL_PATH:-/mnt/workspacedir/lijiayu/checkpoints/Merged_lora/Qwen3-VL-8B/20260518_151450_lora_lr_1e-4_rank_32_alpha_32_bs_64_e_10_compostion_100K_pose_30K_without_kd_4500}"
 PHOTOGRAPHER_LORA_TEMPLATE="${PHOTOGRAPHER_LORA_TEMPLATE:-/mnt/workspacedir/lijiayu/checkpoints/grpo/Qwen3-VL-8B/20260521_010510_grpo_drops/v0-20260521-010620/checkpoint-6000}"
-PHOTOGRAPHER_STEPS="${PHOTOGRAPHER_STEPS:-6000}"
+PHOTOGRAPHER_STEPS="${PHOTOGRAPHER_STEPS:-1000 1500 2000 2500 3000 3500 4000 4500 5000 5500 6000}"
 PHOTOGRAPHER_GPUS="${PHOTOGRAPHER_GPUS:-0,1,2,3,4,5,6,7}"
 PHOTOGRAPHER_GPUS_PER_PROCESS="${PHOTOGRAPHER_GPUS_PER_PROCESS:-1}"
 PHOTOGRAPHER_BASELINE_MODELS="${PHOTOGRAPHER_BASELINE_MODELS:-gemini-3-pro-native}"
@@ -101,13 +101,40 @@ run_photographer_vlm_scoring() {
 run_photographer_model() {
     require_file "${PHOTOGRAPHER_DATA_PATH}"
     require_dir "${PHOTOGRAPHER_IMAGE_ROOT}"
-    read -r -a steps <<< "${PHOTOGRAPHER_STEPS}"
+    local steps=()
+    if [[ "${PHOTOGRAPHER_STEPS}" == "auto" ]]; then
+        if [[ "${PHOTOGRAPHER_LORA_TEMPLATE}" != *"{step}"* ]]; then
+            echo "PHOTOGRAPHER_STEPS=auto requires PHOTOGRAPHER_LORA_TEMPLATE to contain {step}" >&2
+            exit 1
+        fi
+        local checkpoint_glob="${PHOTOGRAPHER_LORA_TEMPLATE//\{step\}/*}"
+        local checkpoint_path checkpoint_name step_value
+        while IFS= read -r checkpoint_path; do
+            checkpoint_name=$(basename "${checkpoint_path}")
+            step_value="${checkpoint_name#checkpoint-}"
+            if [[ "${step_value}" != "${checkpoint_name}" ]]; then
+                steps+=("${step_value}")
+            fi
+        done < <(compgen -G "${checkpoint_glob}" | sort -V)
+        if [[ ${#steps[@]} -eq 0 ]]; then
+            echo "No checkpoints matched PHOTOGRAPHER_LORA_TEMPLATE=${PHOTOGRAPHER_LORA_TEMPLATE}" >&2
+            exit 1
+        fi
+    else
+        read -r -a steps <<< "${PHOTOGRAPHER_STEPS}"
+    fi
+    if [[ "${PHOTOGRAPHER_LORA_TEMPLATE}" != *"{step}"* && ${#steps[@]} -gt 1 ]]; then
+        echo "PHOTOGRAPHER_LORA_TEMPLATE has no {step}, but multiple PHOTOGRAPHER_STEPS were requested: ${PHOTOGRAPHER_STEPS}" >&2
+        exit 1
+    fi
     for step in "${steps[@]}"; do
         local lora_path="${PHOTOGRAPHER_LORA_TEMPLATE//\{step\}/${step}}"
+        require_dir "${lora_path}"
         local exp_name
         exp_name=$(basename "$(dirname "$(dirname "${lora_path}")")")
         local output_dir="${OUTPUT_ROOT}/photographer-side/model/${exp_name}_step_${step}"
         echo "[photographer-model] step=${step} output=${output_dir}"
+        echo "[photographer-model] lora=${lora_path}"
         "${PYTHON_BIN}" "${PHOTOGRAPHER_EVAL_DIR}/evaluate_benchmark.py" \
             --data_format eval \
             --annotation_json "${PHOTOGRAPHER_DATA_PATH}" \
@@ -120,7 +147,7 @@ run_photographer_model() {
             --gpus_per_process "${PHOTOGRAPHER_GPUS_PER_PROCESS}" \
             --overwrite \
             --lora_path "${lora_path}"
-        run_photographer_vlm_scoring "${output_dir}" resume
+        # run_photographer_vlm_scoring "${output_dir}" resume
     done
 }
 
