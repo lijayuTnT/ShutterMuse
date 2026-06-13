@@ -60,10 +60,6 @@
             <span class="icon"><img src="static/images/hf.svg" alt="" aria-hidden="true"></span>
             <span>Model</span>
           </a>
-          <a class="button is-normal is-rounded is-dark is-disabled" aria-disabled="true" title="Dataset link will be added when available">
-            <span class="icon"><img src="static/images/hf.svg" alt="" aria-hidden="true"></span>
-            <span>Dataset</span>
-          </a>
           <a class="button is-normal is-rounded is-dark is-disabled" aria-disabled="true" title="Benchmark link will be added when available">
             <span class="icon"><img src="static/images/hf.svg" alt="" aria-hidden="true"></span>
             <span>Benchmark</span>
@@ -78,12 +74,22 @@
       <div class="container is-max-desktop">
         <h2 class="section-title">Abstract</h2>
         <p>
-          Real-world photography requires capture-time guidance for both camera framing and subject pose. Yet existing aesthetic cropping benchmarks mainly evaluate post-hoc crop prediction and overlook subject-side recommendations, leaving the capture-time guidance capabilities of multimodal large language models (MLLMs) underexplored. To address this gap, we introduce \textbf{CaptureGuide-Bench}, a benchmark with two complementary tasks: photographer-side composition decision and refinement, and subject-side scene-conditioned pose recommendation. Our evaluation reveals complementary limitations: general-purpose MLLMs can make composition decisions but lack precise refinement localization, while specialized aesthetic cropping models localize crops effectively but are limited to refinement; neither provides structured, actionable pose guidance. To support model development, we further construct \textbf{CaptureGuide-Dataset}, comprising 130K samples with textual rationales and structured visual annotations, and develop \textbf{ShutterMuse}, a unified MLLM trained with supervised and reinforcement fine-tuning. Experiments on CaptureGuide-Bench show that ShutterMuse achieves state-of-the-art photographer-side guidance and competitive subject-side pose recommendation with substantially lower inference cost, demonstrating the potential of MLLMs as interactive assistants for photography during image capture.
+          Real-world photography requires capture-time guidance for both camera framing and subject pose. Yet existing aesthetic cropping benchmarks mainly evaluate post-hoc crop prediction and overlook subject-side recommendations, leaving the capture-time guidance capabilities of multimodal large language models (MLLMs) underexplored. To address this gap, we introduce CaptureGuide-Bench, a benchmark with two complementary tasks: photographer-side composition decision and refinement, and subject-side scene-conditioned pose recommendation. Our evaluation reveals complementary limitations: general-purpose MLLMs can make composition decisions but lack precise refinement localization, while specialized aesthetic cropping models localize crops effectively but are limited to refinement; neither provides structured, actionable pose guidance. To support model development, we further construct CaptureGuide-Dataset, comprising 130K samples with textual rationales and structured visual annotations, and develop ShutterMuse, a unified MLLM trained with supervised and reinforcement fine-tuning. Experiments on CaptureGuide-Bench show that ShutterMuse achieves state-of-the-art photographer-side guidance and competitive subject-side pose recommendation with substantially lower inference cost, demonstrating the potential of MLLMs as interactive assistants for photography during image capture.
         </p>
       </div>
     </section>
 
-
+    <section class="section alt-section demo-video-section" id="demo-video">
+      <div class="container is-max-widescreen">
+        <h2 class="section-title">Demo Video</h2>
+        <div class="demo-video-card">
+          <video class="demo-video" controls preload="metadata" playsinline>
+            <source src="Demo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </section>
 
     <section class="section showcase-section" id="standard-showcase">
       <div class="showcase-title-block">

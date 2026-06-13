@@ -226,6 +226,22 @@ a:hover {
   background: linear-gradient(90deg, var(--accent-2), var(--accent));
 }
 
+.demo-video-card {
+  overflow: hidden;
+  margin: 2rem auto 0;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--panel);
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.35);
+}
+
+.demo-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #000;
+}
+
 .image-card {
   overflow: hidden;
   margin: 0;
