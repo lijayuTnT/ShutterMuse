@@ -242,6 +242,16 @@ a:hover {
   background: #000;
 }
 
+.demo-video-caption {
+  max-width: 900px;
+  margin: 1.15rem auto 0;
+  color: rgba(245, 247, 250, 0.78);
+  font-size: 1.08rem;
+  font-weight: 300;
+  line-height: 1.65;
+  text-align: center;
+}
+
 .image-card {
   overflow: hidden;
   margin: 0;
