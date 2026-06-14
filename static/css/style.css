@@ -252,6 +252,46 @@ a:hover {
   text-align: center;
 }
 
+.captureguide-description {
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  color: var(--muted);
+  font-size: 1.08rem;
+  font-weight: 300;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.captureguide-card {
+  overflow: hidden;
+  max-width: 960px;
+  margin: 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--panel);
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.35);
+}
+
+.captureguide-card a,
+.captureguide-card img {
+  display: block;
+}
+
+.captureguide-card img {
+  width: 100%;
+  height: auto;
+  background: #ffffff;
+}
+
+.captureguide-card figcaption {
+  padding: 1rem 1.25rem 1.15rem;
+  color: var(--muted);
+  font-size: 0.98rem;
+  font-style: italic;
+  line-height: 1.55;
+  text-align: center;
+}
+
 .image-card {
   overflow: hidden;
   margin: 0;
