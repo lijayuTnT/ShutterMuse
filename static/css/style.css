@@ -283,6 +283,34 @@ a:hover {
   background: #ffffff;
 }
 
+.pdf-card {
+  background: #ffffff;
+}
+
+.pdf-viewer {
+  display: block;
+  width: 100%;
+  border: 0;
+  background: #ffffff;
+}
+
+.pdf-viewer-captureguide {
+  height: min(78vw, 760px);
+}
+
+.pdf-card figcaption {
+  background: var(--panel);
+}
+
+.pdf-card figcaption a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.pdf-card figcaption a:hover {
+  text-decoration: underline;
+}
+
 .captureguide-card figcaption {
   padding: 1rem 1.25rem 1.15rem;
   color: var(--muted);
@@ -592,13 +620,29 @@ pre code {
   margin: 0;
 }
 
-.comparison-figure img {
+.comparison-figure img,
+.comparison-figure .pdf-viewer {
   display: block;
   width: 100%;
-  height: auto;
-  border-radius: 8px;
+  border-radius: 8px 8px 0 0;
   background: #ffffff;
   box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+}
+
+.comparison-figure img {
+  height: auto;
+}
+
+.pdf-viewer-comparison {
+  height: min(72vw, 780px);
+}
+
+.comparison-figure figcaption {
+  padding: 0.85rem 1rem 1rem;
+  border-radius: 0 0 8px 8px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  text-align: center;
 }
 
 @keyframes uso-scroll-left {
