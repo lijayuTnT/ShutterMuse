@@ -6,8 +6,8 @@
   <p>
     <a href="#"><img src="https://img.shields.io/badge/arXiv-Coming%20Soon-b31b1b.svg" alt="arXiv"/></a>
     <a href="https://lijayuTnT.github.io/ShutterMuse/"><img src="https://img.shields.io/badge/Project-ShutterMuse-blue.svg" alt="Project"/></a>
-    <a href="#data-and-checkpoints"><img src="https://img.shields.io/badge/Model-Coming%20Soon-yellow.svg" alt="Model"/></a>
-    <a href="#data-and-checkpoints"><img src="https://img.shields.io/badge/Bench-Coming%20Soon-purple.svg" alt="Bench"/></a>
+    <a href="https://huggingface.co/ShutterMuse/ShutterMuse"><img src="https://img.shields.io/badge/Model-HuggingFace-yellow.svg" alt="Model"/></a>
+    <a href="https://huggingface.co/datasets/ShutterMuse/CaptureGuide-Bench"><img src="https://img.shields.io/badge/Bench-HuggingFace-purple.svg" alt="Bench"/></a>
   </p>
 </div>
 
@@ -25,8 +25,8 @@
 
 ## News
 
-- **2026-06**: Code, quick start scripts, evaluation scripts, and examples are released.
-- **TBD**: Full benchmark, dataset, checkpoints, and model cards will be linked here.
+- **2026-06**: Code, quick start scripts, evaluation scripts, examples, CaptureGuide-Bench, and ShutterMuse model weights are released.
+- **TBD**: CaptureGuide-Dataset will be linked here.
 
 ## CaptureGuide Dataset and Bench
 
@@ -73,7 +73,7 @@ conda activate shuttermuse
 pip install -r requirements.txt
 ```
 
-Model checkpoints are not stored in this repository. Please prepare the base or merged Qwen-VL checkpoint and the ShutterMuse LoRA/checkpoint separately.
+ShutterMuse model weights are released on [Hugging Face](https://huggingface.co/ShutterMuse/ShutterMuse). Please prepare the base or merged Qwen-VL checkpoint and the ShutterMuse LoRA/checkpoint according to the model card.
 
 ## Quick Start
 
@@ -185,16 +185,16 @@ ShutterMuse/
 └── requirements.txt
 ```
 
-`Benchmark/` and `outputs/` are intentionally excluded from git. The full benchmark will be released separately.
+`Benchmark/` and `outputs/` are intentionally excluded from git. The released benchmark is available on [Hugging Face](https://huggingface.co/datasets/ShutterMuse/CaptureGuide-Bench).
 
 ## Data and Checkpoints
 
 
 | Resource               | Status      | Link |
 | ---------------------- | ----------- | ---- |
-| CaptureGuide-Bench     | Coming soon | TODO |
+| CaptureGuide-Bench     | Released    | [Hugging Face](https://huggingface.co/datasets/ShutterMuse/CaptureGuide-Bench) |
 | CaptureGuide-Dataset   | Coming soon | TODO |
-| ShutterMuse checkpoint | Coming soon | TODO |
+| ShutterMuse checkpoint | Released    | [Hugging Face](https://huggingface.co/ShutterMuse/ShutterMuse) |
 
 
 ## Citation
