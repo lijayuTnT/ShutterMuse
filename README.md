@@ -26,7 +26,6 @@
 ## News
 
 - **2026-06**: Code, quick start scripts, evaluation scripts, examples, CaptureGuide-Bench, and ShutterMuse model weights are released.
-- **TBD**: CaptureGuide-Dataset will be linked here.
 
 ## CaptureGuide Dataset and Bench
 
@@ -193,7 +192,6 @@ ShutterMuse/
 | Resource               | Status      | Link |
 | ---------------------- | ----------- | ---- |
 | CaptureGuide-Bench     | Released    | [Hugging Face](https://huggingface.co/datasets/ShutterMuse/CaptureGuide-Bench) |
-| CaptureGuide-Dataset   | Coming soon | TODO |
 | ShutterMuse checkpoint | Released    | [Hugging Face](https://huggingface.co/ShutterMuse/ShutterMuse) |
 
 
