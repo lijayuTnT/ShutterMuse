@@ -4,7 +4,7 @@
     ShutterMuse: Capture-Time Photography Guidance with MLLMs
   </h2>
   <p>
-    <a href="#"><img src="https://img.shields.io/badge/arXiv-Coming%20Soon-b31b1b.svg" alt="arXiv"/></a>
+    <a href="https://arxiv.org/abs/2606.25763"><img src="https://img.shields.io/badge/arXiv-2606.25763-b31b1b.svg" alt="arXiv"/></a>
     <a href="https://lijayuTnT.github.io/ShutterMuse/"><img src="https://img.shields.io/badge/Project-ShutterMuse-blue.svg" alt="Project"/></a>
     <a href="https://huggingface.co/ShutterMuse/ShutterMuse"><img src="https://img.shields.io/badge/Model-HuggingFace-yellow.svg" alt="Model"/></a>
     <a href="https://huggingface.co/datasets/ShutterMuse/CaptureGuide-Bench"><img src="https://img.shields.io/badge/Bench-HuggingFace-purple.svg" alt="Bench"/></a>
