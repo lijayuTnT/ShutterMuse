@@ -231,6 +231,162 @@ class SaliencyORM(ORM):
         return rewards
 
 
+class SaliencyIOUORM(SaliencyORM):
+    """Combine crop localization IoU with salient-region coverage."""
+
+    @classmethod
+    def _extract_raw_pred_box(cls, completion: str) -> Optional[Tuple[float, float, float, float]]:
+        matches = list(cls.BBOX_RE.finditer(completion))
+        if not matches:
+            return None
+        x1, y1, x2, y2 = map(float, matches[-1].groups())
+        if x2 <= x1 or y2 <= y1:
+            return None
+        return x1, y1, x2, y2
+
+    @staticmethod
+    def _coverage_ratio(
+        pred_box: Tuple[int, int, int, int],
+        saliency_box: Tuple[int, int, int, int],
+        tolerance_pixels: int = 2,
+    ) -> float:
+        px1, py1, px2, py2 = pred_box
+        sx1, sy1, sx2, sy2 = saliency_box
+        saliency_area = max(0, sx2 - sx1) * max(0, sy2 - sy1)
+        if saliency_area <= 0:
+            return 0.0
+        ix1 = max(px1, sx1 - tolerance_pixels)
+        iy1 = max(py1, sy1 - tolerance_pixels)
+        ix2 = min(px2, sx2 + tolerance_pixels)
+        iy2 = min(py2, sy2 + tolerance_pixels)
+        covered_area = max(0, ix2 - ix1) * max(0, iy2 - iy1)
+        return covered_area / saliency_area
+
+    def __call__(
+        self,
+        completions: List[str],
+        ground_truth_bbox: List[List[int]],
+        **kwargs,
+    ) -> List[float]:
+        rewards = []
+        task_types = kwargs.get("task_type", ["composition"] * len(completions))
+        categories = kwargs.get("category", [""] * len(completions))
+        images = kwargs.get("images", [None] * len(completions))
+        im_sizes = kwargs.get("im_size", [None] * len(completions))
+
+        for completion, gt_box, task_type, category, raw_img_data, im_size in zip(
+            completions, ground_truth_bbox, task_types, categories, images, im_sizes
+        ):
+            if task_type != "composition" or self._normalize_category(category) != "REFINE" or not gt_box:
+                rewards.append(0.0)
+                continue
+
+            raw_pred_box = self._extract_raw_pred_box(completion)
+            if raw_pred_box is None:
+                rewards.append(0.0)
+                continue
+            iou_score = compute_iou(list(raw_pred_box), gt_box)
+            if iou_score <= 0.0:
+                rewards.append(0.0)
+                continue
+
+            image_path = self._extract_image_path(raw_img_data)
+            if not image_path:
+                rewards.append(0.0)
+                continue
+            image_w = image_h = None
+            if isinstance(im_size, (list, tuple)) and len(im_size) >= 2:
+                try:
+                    image_w, image_h = int(im_size[0]), int(im_size[1])
+                except (TypeError, ValueError):
+                    image_w = image_h = None
+            if not image_w or not image_h:
+                image = cv2.imread(image_path, cv2.IMREAD_COLOR)
+                if image is None:
+                    rewards.append(0.0)
+                    continue
+                image_h, image_w = image.shape[:2]
+
+            pred_box = self._extract_pred_box(completion, image_w, image_h)
+            saliency_box = self._get_saliency_bbox(image_path)
+            if pred_box is None or saliency_box is None:
+                rewards.append(0.0)
+                continue
+            coverage = self._coverage_ratio(
+                pred_box, saliency_box, tolerance_pixels=self.COVER_TOLERANCE_PIXELS
+            )
+            coverage_factor = min(1.0, coverage / self.COVER_RATIO_THRESHOLD)
+            rewards.append(float(iou_score * coverage_factor))
+        return rewards
+
+
+class DecisionMakingORM(ORM):
+    """Reward the KEEP, REJECT, or REFINE decision for composition samples."""
+
+    BBOX_RE = re.compile(r"\((\d+(?:\.\d+)?),\s*(\d+(?:\.\d+)?)\),\s*\((\d+(?:\.\d+)?),\s*(\d+(?:\.\d+)?)\)")
+
+    @staticmethod
+    def _normalize_category(category: Any) -> Optional[str]:
+        if category is None:
+            return None
+        category = str(category).strip().upper()
+        if category in {"KEEP", "KEEP_ORIGINAL", "KEEP_DEFECT"}:
+            return "KEEP"
+        if category == "REJECT":
+            return "REJECT"
+        if category in {"REFINE", "CORRECT", "VARIATION"}:
+            return "REFINE"
+        return category or None
+
+    @staticmethod
+    def _is_full_image_bbox(box: List[float]) -> bool:
+        x1, y1, x2, y2 = box
+        return abs(x1) <= 1e-6 and abs(y1) <= 1e-6 and (
+            (abs(x2 - 1.0) <= 1e-6 and abs(y2 - 1.0) <= 1e-6)
+            or (abs(x2 - 1000.0) <= 1e-6 and abs(y2 - 1000.0) <= 1e-6)
+        )
+
+    def _predict_category(self, completion: str) -> str:
+        matches = list(self.BBOX_RE.finditer(completion))
+        if not matches:
+            return "REJECT"
+        box = list(map(float, matches[-1].groups()))
+        return "KEEP" if self._is_full_image_bbox(box) else "REFINE"
+
+    def _infer_gt_category(self, gt_category: Any, gt_box: Any) -> Optional[str]:
+        normalized_category = self._normalize_category(gt_category)
+        if normalized_category:
+            return normalized_category
+        if not gt_box:
+            return "REJECT"
+        if len(gt_box) == 4 and self._is_full_image_bbox([float(x) for x in gt_box]):
+            return "KEEP"
+        return "REFINE"
+
+    def __call__(self, completions: List[str], **kwargs) -> List[float]:
+        gt_categories = kwargs.get("category")
+        if gt_categories is None:
+            gt_categories = kwargs.get("gt_category")
+        if gt_categories is None:
+            gt_categories = kwargs.get("composition_category")
+        if gt_categories is None:
+            gt_categories = [None] * len(completions)
+        gt_boxes = kwargs.get("ground_truth_bbox", [[] for _ in completions])
+        task_types = kwargs.get("task_type", ["composition"] * len(completions))
+
+        rewards = []
+        for completion, gt_category, gt_box, task_type in zip(
+            completions, gt_categories, gt_boxes, task_types
+        ):
+            if task_type != "composition":
+                rewards.append(0.0)
+                continue
+            pred_category = self._predict_category(completion)
+            target_category = self._infer_gt_category(gt_category, gt_box)
+            rewards.append(1.0 if target_category and pred_category == target_category else 0.0)
+        return rewards
+
+
 class PoseVisibilityORM(ORM):
     VISIBILITY_RE = re.compile(r'"visibility"\s*:\s*(\[[^\]]*\])')
 
@@ -279,3 +435,5 @@ orms["ratio_orm"] = RatioORM
 orms["iou_orm"] = IoUORM
 orms["pose_visibility_orm"] = PoseVisibilityORM
 orms["saliency_orm"] = SaliencyORM
+orms["saliency_iou_orm"] = SaliencyIOUORM
+orms["decision_making_orm"] = DecisionMakingORM

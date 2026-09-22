@@ -7,7 +7,7 @@
     <a href="https://arxiv.org/abs/2606.25763"><img src="https://img.shields.io/badge/arXiv-2606.25763-b31b1b.svg" alt="arXiv"/></a>
     <a href="https://lijayuTnT.github.io/ShutterMuse/"><img src="https://img.shields.io/badge/Project-ShutterMuse-blue.svg" alt="Project"/></a>
     <a href="https://huggingface.co/ShutterMuse/ShutterMuse"><img src="https://img.shields.io/badge/Model-HuggingFace-yellow.svg" alt="Model"/></a>
-    <a href="https://huggingface.co/datasets/ShutterMuse/CaptureGuide-Bench"><img src="https://img.shields.io/badge/Bench-HuggingFace-purple.svg" alt="Bench"/></a>
+    <a href="https://huggingface.co/datasets/ShutterMuse/CaptureGuide-Bench"><img src="https://img.shields.io/badge/ShutterBench-HuggingFace-purple.svg" alt="ShutterBench"/></a>
   </p>
 </div>
 
@@ -25,47 +25,48 @@
 
 ## News
 
-- **2026-06**: Code, quick start scripts, evaluation scripts, examples, CaptureGuide-Bench, and ShutterMuse model weights are released.
+- **2026-09**: ShutterData, ShutterBench, experimental results, and the GRPO training recipe are updated.
+- **2026-06**: Code, quick start scripts, evaluation scripts, examples, benchmark data, and ShutterMuse model weights are released.
 
-## CaptureGuide Dataset and Bench
+## ShutterData and ShutterBench
 
-CaptureGuide contains two task sides: photographer-side composition guidance and subject-side pose guidance. CaptureGuide-Dataset is used for model development, while CaptureGuide-Bench evaluates composition decision/refinement and pose recommendation quality.
+**ShutterData** contains 130K atomic training examples—100K for photographer-side composition guidance and 30K for subject-side pose guidance—plus 5K joint composition-and-pose examples and 5K pose-refinement examples. **ShutterBench** evaluates both sides: its photographer-side split contains 567 examples (337 refine, 96 keep, and 134 reject), while its subject-side split contains 552 reserved scenes and 100 real-world empty scenes.
 
 <div align="center">
   <a href="./assets/data_distribution_01.png">
-    <img src="./assets/data_distribution_01.png" alt="CaptureGuide dataset and benchmark distribution" width="800">
+    <img src="./assets/data_distribution_01.png" alt="ShutterData and ShutterBench distribution" width="800">
   </a>
 </div>
 
-<p align="center"><em>Distribution of CaptureGuide-Dataset and CaptureGuide-Bench.</em></p>
+<p align="center"><em>Distribution of ShutterData and ShutterBench.</em></p>
 
 ## Results
 
 ### Photographer-side Guidance
 
-| Method | IoU (%) ↑ | BDE ↓ | R (%) ↑ | RSR (%) ↑ | KSR (%) ↑ | MLLM-Score ↑ |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| **Open-source General MLLMs** |  |  |  |  |  |  |
-| InternVL3.5-8B | 42.86 | 0.127 | 8.61 | 0.00 | 20.00 | 0.15 |
-| Kimi-K2.6 | 65.44 | 0.087 | 37.92 | 0.00 | 90.90 | 0.47 |
-| Qwen3-VL-8B-Instruct | 55.18 | 0.105 | 18.40 | 0.00 | 36.36 | 0.25 |
-| Qwen3-VL-32B-Instruct | 63.80 | 0.101 | 35.91 | 13.79 | **98.18** | 0.47 |
-| Qwen3-VL-235B-A22B-Instruct | 61.84 | 0.093 | 33.53 | 20.69 | <u>94.55</u> | 0.48 |
-| Qwen3.5-9B | 61.94 | 0.094 | 30.86 | 3.45 | 83.64 | 0.45 |
-| Qwen3.6-27B | 53.93 | 0.090 | 33.23 | 48.28 | 72.72 | 0.47 |
-| **Proprietary General MLLMs** |  |  |  |  |  |  |
-| Gemini-3.0-Flash | 64.10 | 0.079 | 38.58 | 55.17 | 87.27 | 0.50 |
-| Gemini-3.0-Pro | 63.62 | 0.070 | 47.48 | **82.76** | 89.09 | 0.54 |
-| Gemini-3.1-Pro | 65.63 | <u>0.068</u> | 51.34 | <u>79.31</u> | 89.09 | 0.56 |
-| Gemini-3.5-Flash | 66.95 | 0.076 | 41.54 | 48.28 | 67.27 | 0.50 |
-| GPT-5.4 | 64.72 | 0.093 | 40.06 | 10.34 | 85.45 | 0.49 |
-| GPT-5.5 | 65.44 | 0.091 | 41.84 | 10.34 | 81.82 | 0.48 |
-| **Specialized Aesthetic Cropping Models** |  |  |  |  |  |  |
-| CACNet | 68.29 | 0.080 | 54.08 | 0.00 | 0.00 | 0.52 |
-| UNIC | 62.46 | 0.081 | 31.12 | 0.00 | 0.00 | 0.29 |
-| InstructCrop | <u>69.53</u> | 0.072 | 56.97 | 0.00 | 0.00 | 0.43 |
-| Venus | 69.43 | 0.076 | <u>57.27</u> | 0.00 | 3.64 | <u>0.57</u> |
-| **ShutterMuse (Ours)** | **74.65** | **0.051** | **67.06** | **82.76** | 74.55 | **0.64** |
+| Method | IoU (%) ↑ | BDE ↓ | R@0.7 (%) ↑ | RSR (%) ↑ | KSR (%) ↑ | Macro-F1 (%) ↑ | MLLM-Score ↑ |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| **Open-source General MLLMs** |  |  |  |  |  |  |  |
+| InternVL3.5-8B | 42.86 | 0.127 | 8.61 | 0.00 | 22.92 | 29.09 | 0.18 |
+| Kimi-K2.6 | 65.60 | 0.092 | 38.28 | 4.48 | 96.88 | 28.79 | 0.47 |
+| Qwen3-VL-8B-Instruct | 54.44 | 0.107 | 16.91 | 2.24 | 40.62 | 29.27 | 0.35 |
+| Qwen3-VL-32B-Instruct | 64.33 | 0.099 | 37.39 | 7.46 | 96.88 | 20.14 | 0.43 |
+| Qwen3-VL-235B-A22B-Instruct | 63.97 | 0.094 | 35.61 | 10.45 | **100.00** | 25.77 | 0.48 |
+| Qwen3.5-9B | 61.94 | 0.094 | 30.86 | 5.97 | 77.08 | 31.37 | 0.46 |
+| Qwen3.6-27B | 53.96 | 0.084 | 31.45 | 50.00 | 66.67 | 45.24 | 0.48 |
+| **Proprietary General MLLMs** |  |  |  |  |  |  |  |
+| Gemini-3.0-Flash | 62.46 | 0.077 | 36.80 | **74.63** | 70.83 | 68.99 | 0.60 |
+| Gemini-3.0-Pro | 64.08 | 0.070 | 47.77 | 72.39 | 81.25 | 63.39 | 0.63 |
+| Gemini-3.1-Pro | 65.42 | 0.069 | 49.85 | 72.39 | 80.21 | 64.31 | 0.65 |
+| Gemini-3.5-Flash | 66.05 | 0.075 | 46.29 | 57.46 | 86.46 | 57.39 | 0.63 |
+| GPT-5.4 | 60.03 | 0.089 | 35.91 | 46.27 | 67.71 | 48.89 | 0.48 |
+| GPT-5.5 | 69.74 | 0.078 | 55.49 | 5.22 | 45.83 | 33.75 | 0.48 |
+| **Specialized Aesthetic Cropping Models** |  |  |  |  |  |  |  |
+| CACNet | 67.57 | 0.080 | 51.93 | 0.00 | 0.00 | 24.85 | 0.37 |
+| UNIC | 64.35 | 0.081 | 36.20 | 0.00 | 0.00 | 24.85 | 0.29 |
+| InstructCrop | 69.53 | 0.072 | 56.97 | 0.00 | 0.00 | 24.85 | 0.36 |
+| Venus | 69.90 | 0.075 | 59.05 | 0.00 | 2.08 | 26.24 | 0.44 |
+| **ShutterMuse (Ours)** | **74.72** | **0.053** | **68.25** | 68.66 | 79.17 | **70.10** | **0.69** |
 
 ### FLMS Benchmark
 
@@ -82,11 +83,18 @@ CaptureGuide contains two task sides: photographer-side composition guidance and
 ### Subject-side Guidance
 
 
-| Method          | Plausibility ↑ | Interaction ↑ | Aesthetics ↑ | Mean ↑ | Time ↓   | Tokens ↓ |
-| --------------- | -------------- | ------------- | ------------ | ------ | -------- | -------- |
-| Nano-Banana-Pro | 0.63           | 0.35          | 0.17         | 0.39   | 55.16    | 1370     |
-| GPT-Image-2     | 0.59           | 0.29          | 0.15         | 0.35   | 102.61   | 1427     |
-| **ShutterMuse** | 0.58           | 0.27          | 0.14         | 0.34   | **4.96** | **412**  |
+| Method | Plausibility ↑ | Interaction ↑ | Aesthetics ↑ | Mean ↑ | Time (s) ↓ | # Tokens ↓ |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| **Image Generation Models** |  |  |  |  |  |  |
+| Nano-Banana-Pro | **0.87** | **0.48** | **0.45** | **0.60** | 55.16 | 1370 |
+| GPT-Image-2 | 0.81 | 0.40 | 0.38 | 0.53 | 102.61 | 1427 |
+| **Vision-Language Models** |  |  |  |  |  |  |
+| Qwen3-VL-8B-Instruct | 0.26 | 0.17 | 0.06 | 0.16 | 5.17 | 284.60 |
+| Qwen3-VL-235B-A22B-Instruct | 0.66 | 0.12 | 0.05 | 0.28 | 11.37 | 366.56 |
+| Kimi-K2.6 | 0.81 | 0.12 | 0.08 | 0.34 | 5.99 | **249.47** |
+| Gemini-3.1-Pro | 0.78 | 0.22 | 0.29 | 0.43 | 20.85 | 439.46 |
+| GPT-5.5 | 0.54 | 0.21 | 0.25 | 0.33 | 19.15 | 1052 |
+| **ShutterMuse (Ours)** | 0.80 | 0.33 | 0.36 | 0.50 | **4.96** | 412 |
 
 
 ## Installation
@@ -166,7 +174,7 @@ python training/grpo_utils/precompute_birefnet_saliency.py \
 export SALIENCY_PRECOMPUTE_JSONL=/path/to/grpo_dataset_birefnet_saliency.jsonl
 ```
 
-The GRPO script registers datasets with `training/grpo_utils/data_format.py` and rewards with `training/grpo_utils/reward_func.py` (`ratio_orm`, `iou_orm`, `pose_visibility_orm`, `saliency_orm`). Common overrides include `CUDA_VISIBLE_DEVICES`, `NPROC_PER_NODE`, `PER_DEVICE_TRAIN_BATCH_SIZE`, `LEARNING_RATE`, `OUTPUT_DIR`, and `VLLM_SERVER_PORT`.
+The GRPO script registers datasets with `training/grpo_utils/data_format.py` and rewards with `training/grpo_utils/reward_func.py`. By default, it uses the decision reward `decision_making_orm` and the localization-and-saliency reward `saliency_iou_orm` with equal weights. Legacy rewards (`ratio_orm`, `iou_orm`, `pose_visibility_orm`, and `saliency_orm`) remain available through `REWARD_FUNCS`. Common overrides include `CUDA_VISIBLE_DEVICES`, `NPROC_PER_NODE`, `PER_DEVICE_TRAIN_BATCH_SIZE`, `LEARNING_RATE`, `OUTPUT_DIR`, and `VLLM_SERVER_PORT`.
 
 ## Evaluation
 
@@ -211,14 +219,14 @@ ShutterMuse/
 └── requirements.txt
 ```
 
-`Benchmark/` and `outputs/` are intentionally excluded from git. The released benchmark is available on [Hugging Face](https://huggingface.co/datasets/ShutterMuse/CaptureGuide-Bench).
+`Benchmark/` and `outputs/` are intentionally excluded from git. ShutterBench is available on [Hugging Face](https://huggingface.co/datasets/ShutterMuse/CaptureGuide-Bench).
 
 ## Data and Checkpoints
 
 
 | Resource               | Status      | Link |
 | ---------------------- | ----------- | ---- |
-| CaptureGuide-Bench     | Released    | [Hugging Face](https://huggingface.co/datasets/ShutterMuse/CaptureGuide-Bench) |
+| ShutterBench           | Released    | [Hugging Face](https://huggingface.co/datasets/ShutterMuse/CaptureGuide-Bench) |
 | ShutterMuse checkpoint | Released    | [Hugging Face](https://huggingface.co/ShutterMuse/ShutterMuse) |
 
 

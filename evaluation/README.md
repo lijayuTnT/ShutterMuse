@@ -17,7 +17,7 @@ This directory contains the evaluation code used by ShutterMuse.
 - Set `GEMINI_API_KEY` and/or `QWEN_API_KEY` before running VLM-based scoring.
 
 
-## Benchmark Data
+## ShutterBench Data
 
 - `../Benchmark/photographer-side/composition_benchmark/meta_new.json` and `original_composition/` are used by photographer-side evaluation.
 - `../Benchmark/subject-side/paper-benchmark/` and `paper-benchmark-gt/` are used by subject-side evaluation.
